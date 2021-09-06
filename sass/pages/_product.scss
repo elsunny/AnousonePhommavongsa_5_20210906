@@ -1,0 +1,93 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+// change background color for the page 
+#page__product {
+    background: variables.$clr-5;
+    .header__nav__search__input {
+        // change the color of the search bar
+        border: solid 1px variables.$clr-4;
+    }
+}
+
+
+
+.previous__btn {
+    margin: 20px 0;
+}
+
+// load main picture for the product
+.product {
+    @include mixins.breakpoint(tablet) {
+        // change the layout for tablet to allow the aside pictures 
+        display: flex;
+    }
+    margin: 0 auto;
+    img {
+        @include mixins.breakpoint(tablet) {
+            order: 1;
+        }
+        // set the image size
+        width: 328.16px;
+        height: 244.98px;
+        background-image: url("/images/vcam_2.jpg");
+        background-size: cover;
+    }
+    &__caption {
+        @include mixins.breakpoint(tablet) {
+            order: 2;
+            padding-left: 10px;
+            h1 {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+// load pictures for the gallery thumbnail and set up
+.gallery {
+    @include mixins.breakpoint(tablet) {
+        display: initial;
+        order: 0;
+        flex-basis: 0;
+    }
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    img {
+        // set the image size
+        width: 90px;
+        height: 63px;
+        background-image: url("/images/vcam_2.jpg");
+        background-size: cover;
+        margin-right: 5px;
+    }
+}
+
+// price and stars notation set up
+.product-details {
+    .products__card__price {
+        color: variables.$clr-1;
+        font-weight: bold;
+    }
+    .products__card__notation {
+        font-size: 16px;
+        padding: 15px 0;
+    }
+}
+
+
+
+
+//positioning the description text
+.product-details{
+    &__add-btn,
+    &__description {
+        @include mixins.breakpoint(tablet) {
+            margin-left: 95px;
+        }
+    }
+    &__description {
+        padding: 30px 0;
+    }
+}

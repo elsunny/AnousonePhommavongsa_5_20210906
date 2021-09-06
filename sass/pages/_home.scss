@@ -1,0 +1,150 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+main {
+    @include mixins.breakpoint(laptop) {
+        width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+.hero {
+    @include mixins.breakpoint(tablet) {
+        display: flex;
+        align-items: center;
+    }
+    margin-top: 30px;
+    &__title p {
+        line-height: 32px;
+        letter-spacing: 0.1em;
+    }
+    &__title {
+        @include mixins.breakpoint(tablet) {
+            padding: 0 30px;
+            width: 420px;
+        }
+    }
+    &__btn {
+        // hide or see product button
+        @include mixins.breakpoint(tablet) {
+            display: initial;
+            margin-top: 30px;
+        }
+        display: none;
+    }
+    // frames with different size and color
+    &__illustration {
+        // external frame
+        position: relative;
+        background-color: variables.$clr-5;
+        width: 301px;
+        height: 269px;
+        margin: 50px auto;
+        box-shadow: 4px 4px 6px -4px rgba(0, 0, 0, 0.25);
+        &__outside__title {
+            // position of the product title
+            padding: 5px;
+        }
+        &__middle {
+            // middle frame
+            width: 243px;
+            height: 189px;
+            margin: 0 auto;
+            background-color: variables.$clr-2;
+        }
+        &__inner {
+            // inner frame with large border
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 196.87px;
+            height: 119.16px;
+            background: #ffffff;
+            border: 10px solid #000000;
+            overflow: hidden;
+            &__img {
+                // picture load in hero section
+                width: 100%;
+                height: 100%;
+                background-image: url("/images/vcam_5.jpg");
+                background-size: cover;
+            }
+        }
+    }
+}
+
+// background color for product section
+.products {
+    padding-top: 20px;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-bottom: 50px;
+    background: variables.$clr-5;
+}
+
+.products__card {
+    // change the display of the cards
+    @include mixins.breakpoint(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-wrap: wrap;
+        flex-grow: 1;
+    }
+}
+
+// hide the products breadcrumb and sort list
+.products__nav {
+    display: flex;
+    &__breadcrumb {
+        @include mixins.breakpoint(tablet) {
+            display: inherit;
+        }
+        display: none;
+    }
+    
+}
+
+// hide show more product button and position it
+.products__button--more {
+    @include mixins.breakpoint(tablet) {
+        display: inherit;
+        text-align: center;
+        padding-top: 50px;
+    }
+    display: none;
+}
+
+// product card item set up
+.products__card__item {
+    width: 328.16px;
+    height: 348px;
+    margin: 0 auto;
+    margin-top: 70px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: variables.$clr-2;
+    &__image {
+        // set the image size
+        width: 328.16px;
+        height: 244.98px;
+        background-image: url("/images/vcam_1.jpg");
+        background-size: cover;
+        transform: scale(0.9);
+    }
+    & figcaption {
+        background: variables.$clr-3;
+        padding: 5px 10px;
+    }
+}
+
+.products__card__notation {
+    font-size: 10px;
+    padding-bottom: 5px;
+}
+
+.products__card__price {
+    padding-top: 16px;
+    font-size: 25px;
+    color: variables.$clr-4;
+}

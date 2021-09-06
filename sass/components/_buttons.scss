@@ -1,0 +1,73 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+// search button
+.header__nav__search__input {
+    width: 100%;
+    height: 23px;
+    border-radius: 10px;
+    background-color: variables.$clr-5;
+    border: 0;
+    &::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f002";
+        color: red;
+    }
+}
+
+// button to see the products
+.hero__btn {
+    @include mixins.colored-btn(variables.$clr-4);
+}
+
+// button to see more products
+.products__button--more button {
+    @include mixins.outline-btn(variables.$clr-4);
+}
+
+
+// previous button set up
+.previous__btn {
+    border: 0;
+    background: transparent;
+    font-size: 30px;
+}
+
+// breadcrumb setup
+.products__nav__breadcrumb {
+    padding-bottom: 30px;
+    padding-left: 20px;;
+    span {
+        text-transform: capitalize;
+    }
+    span:nth-child(2n) {
+        margin-right: 10px;
+    }
+}
+
+//filter sort setup
+.products__nav__filter {
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+//add to cart button
+.product-details__add-btn {
+    @include mixins.colored-btn(variables.$clr-4);
+    margin-top: 30px;
+}
+
+// button to confirm the command & quantity of product purchased in the cart
+.subtotal__btn,
+.product__quantity {
+    @include mixins.colored-btn(variables.$clr-4);
+    margin: 10px 0;
+}
+
+// button in confirmation page to return on the homepage 
+.hero__btn {
+    a {
+        color: variables.$clr-5;
+    }
+}

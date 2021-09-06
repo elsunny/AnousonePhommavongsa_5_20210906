@@ -1,0 +1,59 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+// flex order position for the header element
+.header {
+    &__logo {
+        order: 0;
+    }
+    &__nav__search {
+        @include mixins.breakpoint(tablet) {
+            order: 1;
+            flex: 5;
+            padding-right: 20px;
+            &__input {
+                max-width: 280px;
+            }
+        }
+        order: 2;
+        padding: 10px;
+        flex-grow: 2;
+        text-align: right;
+    }
+    &__nav {
+        @include mixins.breakpoint(tablet) {
+            // fix the size of the nav to let more space for the search bar in the flex
+            flex: 0 0 auto;
+        }
+        order: 1;
+        flex-grow: 3;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 0;
+    }
+}
+
+.header__nav {
+    &__button {
+        // hide the text link in the nav bar
+        &--connecter__text,
+        &--cart__text {
+            @include mixins.breakpoint(tablet) {
+                display: initial;
+            }
+            display: none;
+            padding-right: 10px;
+        }
+        &--connecter__icon,
+        &--cart__icon {
+            margin-right: 20px;
+            color: variables.$clr-4;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+#page__confirmation {
+    .hero {
+        @include mixins.breakpoint(tablet) {
+            display: initial;
+            &__title {
+                width: 100%;
+                margin: 80px 0;
+            }
+        }
+        text-align: center;
+    }
+    
+}
+
+

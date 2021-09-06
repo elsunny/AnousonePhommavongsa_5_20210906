@@ -1,0 +1,9 @@
+    @use "./sass/base/reset";
+    @use "./sass/base/typography";
+    @use "./sass/layout/header";
+    @use "./sass/components/buttons";
+    @use "./sass/layout/footer";
+    @use "./sass/pages/home";
+    @use "./sass/pages/product";
+    @use "./sass/pages/cart";
+    @use "./sass/pages/confirmation";

@@ -1,0 +1,45 @@
+@use "./variables";
+
+// breakpoint for media queries
+@mixin breakpoint($point) {
+    @if $point == mobile {
+        @media screen and (min-width: 375px) {
+            @content;
+        }
+    }
+    @else if $point == tablet {
+        @media screen and (min-width: 768px) {
+            @content;
+        }
+    }
+    @else if $point == laptop {
+        @media screen and (min-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $point == desktop {
+        @media screen and (min-width: 1600px) {
+            @content;
+        }
+    }
+}
+
+// button with background color
+@mixin colored-btn($clr) {
+    border: solid 1px $clr;
+    padding: 10px 15px;
+    background: $clr;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+// outlined colored button
+@mixin outline-btn($clr) {
+    border: solid 1px $clr;
+    padding: 10px 15px;
+    background: transparent;
+    color: variables.$clr-1;
+    text-transform: uppercase;
+    font-weight: bold;
+}
