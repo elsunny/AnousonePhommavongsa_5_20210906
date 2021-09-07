@@ -1,12 +1,7 @@
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
-main {
-    @include mixins.breakpoint(laptop) {
-        width: 1100px;
-        margin: 0 auto;
-    }
-}
+
 
 .hero {
     @include mixins.breakpoint(tablet) {
@@ -23,6 +18,7 @@ main {
             padding: 0 30px;
             width: 420px;
         }
+        padding: 0 10px;
     }
     &__btn {
         // hide or see product button
@@ -74,11 +70,15 @@ main {
     }
 }
 
+// limit the size of the main presentation on laptop screen
+.home-details {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
 // background color for product section
 .products {
     padding-top: 20px;
-    margin-left: -16px;
-    margin-right: -16px;
     padding-bottom: 50px;
     background: variables.$clr-5;
 }
@@ -108,11 +108,11 @@ main {
 
 // hide show more product button and position it
 .products__button--more {
-    @include mixins.breakpoint(tablet) {
-        display: inherit;
-        text-align: center;
-        padding-top: 50px;
-    }
+    // @include mixins.breakpoint(tablet) {
+    //     display: inherit;
+    //     text-align: center;
+    //     padding-top: 50px;
+    // }
     display: none;
 }
 
@@ -120,10 +120,12 @@ main {
 .products__card__item {
     width: 328.16px;
     height: 348px;
-    margin: 0 auto;
-    margin-top: 70px;
+    margin: 70px 27px 30px 27px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: variables.$clr-2;
+    &__last {
+        margin-right: auto;
+    }
     &__image {
         // set the image size
         width: 328.16px;
@@ -148,3 +150,13 @@ main {
     font-size: 25px;
     color: variables.$clr-4;
 }
+
+// break the element line after 2 elements in the products__card flexbox while screen is in tablet
+.break-flex {
+    @include mixins.breakpoint(laptop) {
+      display: none;
+    }
+    width: 100%;
+    border: 0;
+  }
+

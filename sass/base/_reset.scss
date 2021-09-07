@@ -17,14 +17,11 @@ a {
     color: variables.$clr-1;
 }
 
-main {
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-}
 
-// allow invisible breakline after 2 products cards elements in the flexbox row
-hr {
-    width: 100%;
-    border: 0;
+//fit the main section in the page regarding header and footer height
+.home-details,
+.product-details,
+.cart-details,
+.confirmation-details   {
+    min-height: calc(100vh - #{variables.$header_height} - #{variables.$footer_height});
 }

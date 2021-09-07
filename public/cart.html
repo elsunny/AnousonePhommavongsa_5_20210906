@@ -30,35 +30,37 @@
     </head>
 
     <body id="page__cart">
-        <main>
-            <header>
-                <div class="header__logo">vintedcamera</div>
+        <header>
+            <div class="header__logo">
+                <a href="index.html">vintedcamera</a>
+            </div>
 
-                <!-- ///////////////////// main navigation section ///////////////////// -->
-                <form action="" class="header__nav__search">
-                    <input type="text" class="header__nav__search__input" />
-                </form>
-                <nav class="header__nav">
-                    <div class="header__nav__button--connecter">
-                        <span class="header__nav__button--connecter__text">
-                            se connecter
+            <!-- ///////////////////// main navigation section ///////////////////// -->
+            <form action="" class="header__nav__search">
+                <input type="text" class="header__nav__search__input" />
+            </form>
+            <nav class="header__nav">
+                <div class="header__nav__button--connecter">
+                    <span class="header__nav__button--connecter__text">
+                        se connecter
+                    </span>
+                    <span class="header__nav__button--connecter__icon">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+                <div class="header__nav__button--cart">
+                    <a href="cart.html">
+                        <span class="header__nav__button--cart__text">
+                            panier
                         </span>
-                        <span class="header__nav__button--connecter__icon">
-                            <i class="fas fa-user"></i>
+                        <span class="header__nav__button--cart__icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </span>
-                    </div>
-                    <div class="header__nav__button--cart">
-                        <a href="cart.html">
-                            <span class="header__nav__button--cart__text">
-                                panier
-                            </span>
-                            <span class="header__nav__button--cart__icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </span>
-                        </a>
-                    </div>
-                </nav>
-            </header>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main class="cart-details">
             <!-- ////////////////// cart amount section with order button //////////////  -->
             <!-- back previous page button -->
             <button class="previous__btn">
@@ -66,74 +68,74 @@
             </button>
             <div class="container-cart">
                 <!-- cart subtotal -->
-            <aside class="cart__subtotal">
-                <div class="cart__subtotal__container">
-                    <div class="subtotal">
-                        <span>sous-total</span>
-                        <span class="subtotal__items">(2 articles)</span>
-                        <span class="subtotal__amount">81,15€</span>
+                <aside class="cart__subtotal">
+                    <div class="cart__subtotal__container">
+                        <div class="subtotal">
+                            <span>sous-total</span>
+                            <span class="subtotal__items">(2 articles)</span>
+                            <span class="subtotal__amount">81,15€</span>
+                        </div>
+                        <button class="subtotal__btn">
+                            Passez la commande
+                        </button>
                     </div>
-                    <button class="subtotal__btn">Passez la commande</button>
-                </div>
-                
-            </aside>
-            <!-- cart details -->
-            <section class="cart">
-                <h1 class="cart__title">votre panier</h1>
-                <figure class="product">
-                    <img src="#" alt="" />
-                    <figcaption class="product__caption">
-                        <h2>product title</h2>
-                        <div class="products__card__notation">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span class="products__card__notation__comment">
-                                (561)
-                            </span>
-                        </div>
-                        <div class="products__card__price">129€</div>
-                        <button class="product__quantity">
-                            <span>qté:</span>
-                            <span class="product__quantity__number">1</span>
-                        </button>
-                    </figcaption>
-                </figure>
-                <hr class="line-separation">
-                <figure class="product">
-                    <img src="#" alt="" />
-                    <figcaption class="product__caption">
-                        <h2>product title</h2>
-                        <div class="products__card__notation">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span class="products__card__notation__comment">
-                                (561)
-                            </span>
-                        </div>
-                        <div class="products__card__price">129€</div>
-                        <button class="product__quantity">
-                            <span>qté:</span>
-                            <span class="product__quantity__number">1</span>
-                        </button>
-                    </figcaption>
-                </figure>
-            </section>
+                </aside>
+                <!-- cart details -->
+                <section class="cart">
+                    <h1 class="cart__title">votre panier</h1>
+                    <figure class="product">
+                        <img src="#" alt="" />
+                        <figcaption class="product__caption">
+                            <h2>product title</h2>
+                            <div class="products__card__notation">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="products__card__notation__comment">
+                                    (561)
+                                </span>
+                            </div>
+                            <div class="products__card__price">129€</div>
+                            <button class="product__quantity">
+                                <span>qté:</span>
+                                <span class="product__quantity__number">1</span>
+                            </button>
+                        </figcaption>
+                    </figure>
+                    <hr class="line-separation" />
+                    <figure class="product">
+                        <img src="#" alt="" />
+                        <figcaption class="product__caption">
+                            <h2>product title</h2>
+                            <div class="products__card__notation">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="products__card__notation__comment">
+                                    (561)
+                                </span>
+                            </div>
+                            <div class="products__card__price">129€</div>
+                            <button class="product__quantity">
+                                <span>qté:</span>
+                                <span class="product__quantity__number">1</span>
+                            </button>
+                        </figcaption>
+                    </figure>
+                </section>
             </div>
-            
-            <!-- /////////////// footer section /////////////// -->
-            <footer>
-                <h2>Onorico</h2>
-                <h3>
-                    1 route du succes story - 56000 beltz<br />
-                    <a href="mailto:contact@onorico.fr"> contact@onorico.fr </a>
-                </h3>
-            </footer>
         </main>
+        <!-- /////////////// footer section /////////////// -->
+        <footer>
+            <h2>Onorico</h2>
+            <h3>
+                1 route du succes story - 56000 beltz<br />
+                <a href="mailto:contact@onorico.fr"> contact@onorico.fr </a>
+            </h3>
+        </footer>
     </body>
 </html>

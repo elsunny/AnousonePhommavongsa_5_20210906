@@ -57,11 +57,3 @@ h3 {
     color: variables.$clr-1;
 }
 
-//set icon as pseudo element
-.icon::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}

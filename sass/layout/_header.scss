@@ -5,12 +5,14 @@ header {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    height: variables.$header_height;
 }
 
 // flex order position for the header element
 .header {
     &__logo {
         order: 0;
+        padding: 10px;
     }
     &__nav__search {
         @include mixins.breakpoint(tablet) {
@@ -25,6 +27,11 @@ header {
         padding: 10px;
         flex-grow: 2;
         text-align: right;
+        &__input {
+            //function not activated on openclassrooms projet 5, search bar disactivated
+            display: none;
+        }
+        
     }
     &__nav {
         @include mixins.breakpoint(tablet) {
@@ -54,6 +61,10 @@ header {
         &--cart__icon {
             margin-right: 20px;
             color: variables.$clr-4;
+        }
+        &--connecter {
+            // the function is not activated for openclassrooms P5 so it can be desactivated
+            display: none;
         }
     }
 }
