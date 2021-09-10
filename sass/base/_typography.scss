@@ -26,14 +26,27 @@ h2 {
     text-transform: capitalize;
 }
 
-#page__cart figcaption h2 {
-    @include mixins.breakpoint(tablet) {
-        font-size: 25px;
+#page__cart {
+    figcaption h2 {
+        @include mixins.breakpoint(tablet) {
+            font-size: 25px;
+            color: variables.$clr-4;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 37px;
+            letter-spacing: 0.03em;
+        }
+    }
+    h4 {
+        //title formulaire 
+        font-size: 28px;
         color: variables.$clr-4;
         font-weight: normal;
         font-style: normal;
+        text-transform: capitalize;
         line-height: 37px;
         letter-spacing: 0.03em;
+        padding: 20px 0;
     }
 }
 
@@ -56,4 +69,3 @@ h3 {
     text-transform: uppercase;
     color: variables.$clr-1;
 }
-

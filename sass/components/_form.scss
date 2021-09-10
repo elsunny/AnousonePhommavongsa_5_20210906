@@ -1,0 +1,41 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.form__id,
+.form__adresse,
+.form__consigne {
+    div {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        color: variables.$clr-1;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.13em;
+        text-transform: capitalize;
+    }
+    input {
+        margin-top: 5px;
+        width: 200px;
+        height: 19px;
+        border: 1px solid variables.$clr-2;
+        box-sizing: border-box;
+        border-radius: 9px;
+    }
+    margin-bottom: 60px;
+
+}
+
+form {
+    background: variables.$clr-5;
+    padding: 0 10px;
+    button {
+        @include mixins.colored-btn(variables.$clr-4);
+        margin-bottom: 60px;
+    }
+
+}

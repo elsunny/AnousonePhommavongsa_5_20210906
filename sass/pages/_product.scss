@@ -30,7 +30,7 @@
             order: 1;
         }
         // set the image size
-        width: 328.16px;
+        width: 355px;
         height: 244.98px;
         background-image: url("/images/vcam_2.jpg");
         background-size: cover;
@@ -52,6 +52,9 @@
         display: initial;
         order: 0;
         flex-basis: 0;
+    }
+    @include mixins.breakpoint(laptop) {
+        flex-grow: initial;
     }
     display: flex;
     flex-grow: 1;

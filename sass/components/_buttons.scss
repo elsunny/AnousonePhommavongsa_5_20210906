@@ -32,6 +32,7 @@
     border: 0;
     background: transparent;
     font-size: 30px;
+    padding-left: variables.$spacer;
 }
 
 // breadcrumb setup
@@ -62,7 +63,7 @@
 .subtotal__btn,
 .product__quantity {
     @include mixins.colored-btn(variables.$clr-4);
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 
 // button in confirmation page to return on the homepage 
@@ -70,4 +71,9 @@
     a {
         color: variables.$clr-5;
     }
+}
+
+// delete product button
+.product__delete {
+    @include mixins.outline-btn(variables.$clr-4);
 }

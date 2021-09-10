@@ -25,3 +25,14 @@ a {
 .confirmation-details   {
     min-height: calc(100vh - #{variables.$header_height} - #{variables.$footer_height});
 }
+
+// limit the size of the main presentation on laptop screen
+.confirmation-details,
+.cart-details,
+.product-details,
+.home-details {
+    max-width: 1150px;
+    margin: 0 auto;
+    // padding-left: 10px;
+    // padding-right: 10px;
+}

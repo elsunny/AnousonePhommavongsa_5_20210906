@@ -27,12 +27,16 @@
 // position on the side the subtotal
 .container-cart {
     @include mixins.breakpoint(tablet) {
-        display: flex;
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 165px;
+        grid-gap: 10px;
         .cart__subtotal {
-            flex-grow: 2;
+            // flex-grow: 2;
             order: 1;
             margin: initial;
-            margin-left: auto;
+            // margin-left: auto;
             padding: initial;
             text-transform: capitalize;
             background: variables.$clr-2;
@@ -43,17 +47,25 @@
             }
         }
         .cart {
-            order: 0;
-            flex-grow: 3;
             background: variables.$clr-5;
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-right: 10px;
-            margin-left: -10px;
-            margin-bottom: 50px;
+            order: 0;
+            // flex-grow: 3;
+            background: variables.$clr-5;
+            // padding-left: 10px;
+            // padding-right: 10px;
+            // margin-right: 10px;
+            // margin-bottom: 50px;
             &__title {
                 padding-top: 5px;
             }
         }
+        form {
+            order: 2;
+        }
     }
-}
+    .cart {
+        padding-left: variables.$spacer;
+    }
+        
+    }
+    
