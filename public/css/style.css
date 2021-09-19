@@ -408,6 +408,7 @@ footer a {
 }
 
 .product {
+  padding: 10px;
   margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
@@ -418,8 +419,6 @@ footer a {
 .product img {
   width: 355px;
   height: 244.98px;
-  background-image: url("/images/vcam_2.jpg");
-  background-size: cover;
 }
 @media screen and (min-width: 768px) {
   .product img {
@@ -470,10 +469,16 @@ footer a {
   padding: 15px 0;
 }
 
-@media screen and (min-width: 768px) {
-  .product-details__add-btn, .product-details__description {
-    margin-left: 95px;
-  }
+.option {
+  padding: 10px;
+}
+.option label {
+  padding: 0 5px;
+  text-transform: capitalize;
+}
+
+.product-details__add-btn, .product-details__description {
+  margin-left: 10px;
 }
 .product-details__description {
   padding: 30px 0;

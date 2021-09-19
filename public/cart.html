@@ -27,6 +27,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <script src="./script/cart.js" defer></script>
     </head>
 
     <body id="page__cart">
@@ -36,9 +37,9 @@
             </div>
 
             <!-- ///////////////////// main navigation section ///////////////////// -->
-            <form action="" class="header__nav__search">
+            <!-- <form action="" class="header__nav__search">
                 <input type="text" class="header__nav__search__input" />
-            </form>
+            </form> -->
             <nav class="header__nav">
                 <div class="header__nav__button--connecter">
                     <span class="header__nav__button--connecter__text">
@@ -82,56 +83,8 @@
                 </aside>
                 <!-- cart details -->
                 <section class="cart">
-                    <h1 class="cart__title">votre panier</h1>
-                    <figure class="product">
-                        <img src="#" alt="" />
-                        <figcaption class="product__caption">
-                            <h2>product title</h2>
-                            <div class="products__card__notation">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="products__card__notation__comment">
-                                    (561)
-                                </span>
-                            </div>
-                            <div class="products__card__price">129€</div>
-                            <button class="product__quantity">
-                                <span>qté:</span>
-                                <span class="product__quantity__number">1</span>
-                            </button>
-                            <button class="product__delete">
-                                <span>supprimer</span>
-                            </button>
-                        </figcaption>
-                    </figure>
-                    <hr class="line-separation" />
-                    <figure class="product">
-                        <img src="#" alt="" />
-                        <figcaption class="product__caption">
-                            <h2>product title</h2>
-                            <div class="products__card__notation">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="products__card__notation__comment">
-                                    (561)
-                                </span>
-                            </div>
-                            <div class="products__card__price">129€</div>
-                            <button class="product__quantity">
-                                <span>qté:</span>
-                                <span class="product__quantity__number">1</span>
-                            </button>
-                            <button class="product__delete">
-                                <span>supprimer</span>
-                            </button>
-                        </figcaption>
-                    </figure>
+                    <!-- dynamic insert template for cartProduct -->
+                    
                 </section>
                 <form action="#" method="get">
                     <h4>formulaire de commande</h4>
@@ -196,5 +149,33 @@
                 <a href="mailto:contact@onorico.fr"> contact@onorico.fr </a>
             </h3>
         </footer>
+        <template id="cartTemplate">
+            <h1 class="cart__title">votre panier</h1>
+                    <figure class="product">
+                        <img src="#" alt="" />
+                        <figcaption class="product__caption">
+                            <h2>product title</h2>
+                            <div class="products__card__notation">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="products__card__notation__comment">
+                                    (561)
+                                </span>
+                            </div>
+                            <div class="products__card__price">129€</div>
+                            <button class="product__quantity">
+                                <span>qté:</span>
+                                <span class="product__quantity__number">1</span>
+                            </button>
+                            <button class="product__delete">
+                                <span>supprimer</span>
+                            </button>
+                        </figcaption>
+                    </figure>
+                    <hr class="line-separation" />
+        </template>
     </body>
 </html>
