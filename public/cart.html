@@ -27,7 +27,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <script src="./script/cart.js" defer></script>
+        <script type="module" src="./script/cart.js" defer></script>
     </head>
 
     <body id="page__cart">
@@ -82,16 +82,18 @@
                     </div>
                 </aside>
                 <!-- cart details -->
-                <section class="cart">
-                    <!-- dynamic insert template for cartProduct -->
-                    
+                <section>
+                    <h1 class="cart__title">votre panier</h1>
+                    <div class="carts">
+                        <!-- dynamic insert template for cartProduct -->
+                    </div>
                 </section>
                 <form action="#" method="get">
                     <h4>formulaire de commande</h4>
                     <div class="form__id">
                         <div>
                             <label for="nom">votre nom</label>
-                            <input type="text" name="nom" id="nom" required/>
+                            <input type="text" name="nom" id="nom" required />
                         </div>
                         <div>
                             <label for="prenom">votre prenom</label>
@@ -120,7 +122,12 @@
                     <div class="form__adresse">
                         <div>
                             <label for="adresse">votre adresse</label>
-                            <input type="text" name="adresse" id="adresse" required />
+                            <input
+                                type="text"
+                                name="adresse"
+                                id="adresse"
+                                required
+                            />
                         </div>
                         <div>
                             <label for="ville">votre ville</label>
@@ -150,32 +157,30 @@
             </h3>
         </footer>
         <template id="cartTemplate">
-            <h1 class="cart__title">votre panier</h1>
-                    <figure class="product">
-                        <img src="#" alt="" />
-                        <figcaption class="product__caption">
-                            <h2>product title</h2>
-                            <div class="products__card__notation">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="products__card__notation__comment">
-                                    (561)
-                                </span>
-                            </div>
-                            <div class="products__card__price">129€</div>
-                            <button class="product__quantity">
-                                <span>qté:</span>
-                                <span class="product__quantity__number">1</span>
-                            </button>
-                            <button class="product__delete">
-                                <span>supprimer</span>
-                            </button>
-                        </figcaption>
-                    </figure>
-                    <hr class="line-separation" />
+            <figure class="product">
+                <img src="#" alt="" />
+                <figcaption class="product__caption">
+                    <h2>product title</h2>
+                    <div class="products__card__notation">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span class="products__card__notation__comment">
+                            (561)
+                        </span>
+                    </div>
+                    <div class="products__card__price">129€</div>
+                    <button class="product__quantity">
+                        <span>qté:</span>
+                        <span class="product__quantity__number">1</span>
+                    </button>
+                    <button class="product__delete">
+                        <span>supprimer</span>
+                    </button>
+                </figcaption>
+            </figure>
         </template>
     </body>
 </html>
