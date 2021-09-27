@@ -28,6 +28,7 @@
             referrerpolicy="no-referrer"
         />
         <script type="module" src="./script/cart.js" defer></script>
+        <script  src="./script/form.js" defer></script>
     </head>
 
     <body id="page__cart">
@@ -73,8 +74,8 @@
                     <div class="cart__subtotal__container">
                         <div class="subtotal">
                             <span>sous-total</span>
-                            <span class="subtotal__items">(2 articles)</span>
-                            <span class="subtotal__amount">81,15€</span>
+                            <span class="subtotal__items">(0 article)</span>
+                            <span class="subtotal__amount">0 €</span>
                         </div>
                         <button class="subtotal__btn">
                             Passez la commande
@@ -84,11 +85,12 @@
                 <!-- cart details -->
                 <section>
                     <h1 class="cart__title">votre panier</h1>
+                    <h2 class="cart__message"></h2>
                     <div class="carts">
                         <!-- dynamic insert template for cartProduct -->
                     </div>
                 </section>
-                <form action="#" method="get">
+                <form id="cartForm" action="#" method="post">
                     <h4>formulaire de commande</h4>
                     <div class="form__id">
                         <div>
@@ -108,6 +110,7 @@
                                 placeholder="votre@email.com"
                                 required
                             />
+                            <small></small>
                         </div>
                         <div>
                             <label for="telephone">votre telephone</label>
@@ -117,6 +120,7 @@
                                 id="telephone"
                                 max="10"
                             />
+                            <small></small>
                         </div>
                     </div>
                     <div class="form__adresse">
@@ -161,7 +165,7 @@
                 <img src="#" alt="" />
                 <figcaption class="product__caption">
                     <h2>product title</h2>
-                    <div class="products__card__notation">
+                    <!-- <div class="products__card__notation">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -170,7 +174,8 @@
                         <span class="products__card__notation__comment">
                             (561)
                         </span>
-                    </div>
+                    </div> -->
+                    <h3>option choisie</h3>
                     <div class="products__card__price">129€</div>
                     <button class="product__quantity">
                         <span>qté:</span>

@@ -7,3 +7,4 @@ export async function getProductData(idProduct) {
     const data = await reponse.json();
     return data;
 }
+

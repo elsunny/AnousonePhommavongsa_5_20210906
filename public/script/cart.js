@@ -1,49 +1,59 @@
 // ///////////// js script for cart page cart.html //////////////////
 import { getProductData } from "./module.js";
 
-
 // get the informations from localstorage
-const cartProducts = JSON.parse(localStorage.getItem ('productInCart'));
-// get in variable the html content for the cart layout to be displayed
-const cartTemplate = document.querySelector('#cartTemplate');
-// get in a variable the template insertion point
-const cartInsert = document.querySelector('.carts'); 
+const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
+// get the html content for the cart layout to be displayed
+const cartTemplate = document.querySelector("#cartTemplate");
+// get the template insertion point
+const cartInsert = document.querySelector(".carts");
+// subtotal price
+let subtotalPrice = 0;
 
+// show message if cart is empty otherwise show the cart
+if (cartProducts == null) {
+    document.querySelector(".cart__message").innerText =
+        "votre panier est vide";
+} else {
+    // replace the template value by the server value
+    // dynamique display of card for each product
+    cartProducts.forEach(async (cartProduct) => {
+        const theId = cartProduct.id;
+        const product = await getProductData(theId);
+        const cart = cartTemplate.content
+            .querySelector(".product")
+            .cloneNode(true);
+        cart.querySelector(".product__caption h2").innerText = product.name;
+        cart.querySelector(".product__caption h3").innerText =
+            cartProduct.option;
+        cart.querySelector(".products__card__price").innerText = product.price;
+        cart.querySelector(".product img").src = product.imageUrl;
 
+        // insert the code in the container
+        cartInsert.appendChild(cart);
 
+        // show the products number in the cart
+        let cartProductNum = cartProducts.length;
+        document.querySelector(
+            ".subtotal__items"
+        ).innerText = `(${cartProductNum} articles)`;
 
-// // get the informations relative to the id on the server
-// async function getProductData(idProduct) {
-//     // get the informations and transform the json data to javascript data
-//     const reponse = await fetch(
-//         `http://localhost:3000/api/cameras/${idProduct}`
-//     );
-//     const data = await reponse.json();
-//     return data;
-// }
-// replace the template value by the server value
-// dynamique display of card for each product
-cartProducts.forEach(async (cartProduct) => {
-    const theId = cartProduct.id;
-    const product = await getProductData(theId);
-    console.log(product);
-    const cart = cartTemplate.content
-        .querySelector(".product")
-        .cloneNode(true);
-    cart.querySelector(".product__caption h2").innerText = product.name;
-    cart.querySelector(".products__card__price").innerText = product.price;
-    cart.querySelector(".product img").src = product.imageUrl;
+        //calcul subtotal price
+        subtotalPrice += product.price;
+        document.querySelector(".subtotal__amount").innerText = subtotalPrice;
+    });
+}
 
-    // insert the code in the container 
-    cartInsert.appendChild(cart);
-})
-
-
-
+// remove a product
 
 // calculate the sum of cart products price
+
 // display the price
-// display the number of item
 
+// get the number of cart item
 
+// products array is grouped by id
 
+//increase decrease quantity
+//remove article
+//send to server form and cart order
