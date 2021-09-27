@@ -9,6 +9,8 @@ const cartTemplate = document.querySelector("#cartTemplate");
 const cartInsert = document.querySelector(".carts");
 // subtotal price
 let subtotalPrice = 0;
+// get the quantity insertion node
+const cartQuantity = document.querySelector(".product__quantity__number");
 
 // show message if cart is empty otherwise show the cart
 if (cartProducts == null) {

@@ -6,6 +6,10 @@ import { getProductData } from "./module.js";
 const urlParams = new URL(window.location).searchParams;
 const productId = urlParams.get("_id");
 
+if (!productId) {
+    window.location = "/";
+}
+
 // display the product in the page
 const runProductDisplay = async () => {
     const data = await getProductData(productId);
@@ -18,26 +22,13 @@ const runProductDisplay = async () => {
 };
 runProductDisplay();
 
-let qty = 0;
-
 //create product class object
 class ProductBought {
-    constructor(id, option, qty) {
+    constructor(id, option, qty = 0) {
         this.id = id;
         this.option = option;
         this.qty = qty;
     }
-}
-
-
-
-// array loading already bought object from localstorage
-let productsArray = [];
-let productAlreadyInCart = JSON.parse(localStorage.getItem("productInCart"));
-
-if (productAlreadyInCart != null) {
-    // concats array with previous array
-    productsArray = [...productAlreadyInCart];
 }
 
 // ///////////////////////////////////////
@@ -52,44 +43,21 @@ addToCartBtn.addEventListener("click", () => {
     ).value;
 
     // array loading already bought object from localstorage
-    let productsArray = [];
-    let productAlreadyInCart = JSON.parse(
-        localStorage.getItem("productInCart")
-    );
-    const productBought = new ProductBought(productId, optionSelection, 0);
+    const productsArray =
+        JSON.parse(localStorage.getItem("productInCart")) || [];
 
-    // check if something is already in cart
-    if (productAlreadyInCart !== null) {
-        // take in consideration the products already in cart 
-        productsArray = [...productAlreadyInCart];
-        // loop over the cart products
-        let putInCart = productAlreadyInCart.find((p) => {
-            //looking for product with same id and option
-            if (
-                p.id === productBought.id &&
-                p.option === productBought.option
-            ) {
-                // true then increase the quantity of product and store it
-                let index = productsArray.indexOf(productBought);
-                // let updateQty = productsArray[index].qty;
-                console.log(productsArray[index].qty);
-                // localStorage.setItem(
-                //     "productInCart",
-                //     JSON.stringify(productsArray)
-                // );
-            } else {
-                // false then create a new product in the cart
-                productsArray.push(productBought);
-                localStorage.setItem(
-                    "productInCart",
-                    JSON.stringify(productsArray)
-                );
-            }
-        });
-    } else {
-        // nothing in the cart, first product is here added
+    let productBought = productsArray.find((p) => {
+        //looking for product with same id and option
+        return p.id === productId && p.option === optionSelection;
+    });
+
+    if (!productBought) {
+        productBought = new ProductBought(productId, optionSelection);
         productsArray.push(productBought);
-        localStorage.setItem("productInCart", JSON.stringify(productsArray));
     }
+    productBought.qty += 1;
+    localStorage.setItem("productInCart", JSON.stringify(productsArray));
+
+    
 });
-// localStorage.clear();
+
