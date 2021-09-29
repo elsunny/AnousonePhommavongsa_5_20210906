@@ -149,7 +149,7 @@
                             <input type="text" name="pays" id="pays" />
                         </div>
                     </div>
-                    <button type="submit">passer la commande</button>
+                    <button type="submit" name="submit">passer la commande</button>
                 </form>
             </div>
         </main>
@@ -166,22 +166,26 @@
                 <img src="#" alt="" />
                 <figcaption class="product__caption">
                     <h2>product title</h2>
-                    <!-- <div class="products__card__notation">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="products__card__notation__comment">
-                            (561)
-                        </span>
-                    </div> -->
                     <h3>option choisie</h3>
                     <div class="products__card__price">129€</div>
-                    <button class="product__quantity">
+                    <!-- <button class="product__quantity">
                         <span>qté:</span>
                         <span class="product__quantity__number">1</span>
-                    </button>
+                    </button> -->
+                    <form action="#" class="product__quantity">
+                        <select name="qty" id="qty" size="1">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </form>
                     <button class="product__delete">
                         <span>supprimer</span>
                     </button>
