@@ -87,8 +87,8 @@ const productId = cartProducts.map((p) => {
 });
 
 // sending the order to server
-form.querySelector("button[name=submit]").addEventListener("click", (e) => {
-    e.preventDefault;
+form.querySelector(".btn__order").addEventListener("submit", (e) => {
+    e.preventDefault();
 
     // get the form informations filled by the customer
     let contact = new Customer(
@@ -104,11 +104,10 @@ form.querySelector("button[name=submit]").addEventListener("click", (e) => {
         contact: contact,
         products: productId,
     };
-    console.log(orderData);
 
     // option for the fetch with post method
     const init = {
-        method: "post",
+        method: "POST",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
