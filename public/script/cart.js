@@ -2,6 +2,7 @@
 
 // fetch request for a specific product id
 import { getProductData } from "./module.js";
+import { convertPrice } from "./module.js";
 
 // get the informations from localstorage
 const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
@@ -11,6 +12,12 @@ const cartTemplate = document.querySelector("#cartTemplate");
 
 // get the node for html insertion point
 const cartInsert = document.querySelector(".carts");
+
+// get the node for button send order
+const sendOrder = document.querySelector(".subtotal__btn");
+
+// product quantity
+let cartProductNum = 0;
 
 // subtotal price
 let subtotalPrice = 0;
@@ -31,7 +38,10 @@ if (cartProducts == null) {
         cart.querySelector(".product__caption h2").innerText = product.name;
         cart.querySelector(".product__caption h3").innerText =
             cartProduct.option;
-        cart.querySelector(".products__card__price").innerText = product.price;
+        cart.querySelector(".products__card__price").innerText = convertPrice(
+            product.price,
+            1000
+        );
         cart.querySelector(".product img").src = product.imageUrl;
         cart.querySelector("select[name=qty]").value = cartProduct.qty;
 
@@ -39,25 +49,25 @@ if (cartProducts == null) {
         cartInsert.appendChild(cart);
 
         // show the products number in the cart
-        let cartProductNum = cartProducts.length;
+        cartProductNum += cartProduct.qty;
         document.querySelector(
             ".subtotal__items"
         ).innerText = `(${cartProductNum} articles)`;
 
         //calcul subtotal price
-        subtotalPrice += product.price;
-        document.querySelector(".subtotal__amount").innerText = subtotalPrice;
+        subtotalPrice += product.price * cartProduct.qty;
+        document.querySelector(".subtotal__amount").innerText = convertPrice(
+            subtotalPrice,
+            1000
+        );
     });
-}
+}                                                                                                                                                                                                                                                                                                              
 
-// ////////////// change the quantity //////////////
+
 
 // //////////// remove a product //////////////////
 
 // /////////////// send to server form and cart order //////////////////////
-
-// collect form data in a new object "order"
-// firstName, lastName, address, city, email
 
 const form = document.getElementById("cartForm");
 
@@ -72,30 +82,31 @@ class Customer {
 }
 
 //product id from the customer cart
-const productId = cartProducts.map(p => {
+const productId = cartProducts.map((p) => {
     return p.id;
-})
+});
 
 // sending the order to server
 form.querySelector("button[name=submit]").addEventListener("click", (e) => {
     e.preventDefault;
 
     // get the form informations filled by the customer
-    let customer = new Customer(
+    let contact = new Customer(
         form.querySelector("input[name=nom]").value,
         form.querySelector("input[name=prenom]").value,
         form.querySelector("input[name=adresse]").value,
         form.querySelector("input[name=ville]").value,
         form.querySelector("input[name=email]").value
     );
-    
+
     // collect customer informations and products ordered
     let orderData = {
-        contact: customer,
-        products: productId
-    }
+        contact: contact,
+        products: productId,
+    };
+    console.log(orderData);
 
-    // option for the fectch with post method
+    // option for the fetch with post method
     const init = {
         method: "post",
         headers: {
@@ -105,21 +116,10 @@ form.querySelector("button[name=submit]").addEventListener("click", (e) => {
         body: JSON.stringify(orderData),
     };
 
-    // sending the datas to the server
-async function sendOrder(order) {
-    let response = await JSON.parse(fetch("http://localhost:3000/api/cameras/order", init))
-    console.log(response);
-}
+    fetch("http://localhost:3000/api/cameras/order", init)
+        // Converting to JSON
+        .then((response) => response.json())
 
-
-
-
-
-
-//     fetch("http://localhost:3000/api/cameras/order", init)
-//         // Converting to JSON
-//         .then((response) => response.json())
-
-//         // Displaying results to console
-//         .then((json) => console.log(json));
+        // Displaying results to console
+        .then((json) => console.log(json));
 });

@@ -8,3 +8,17 @@ export async function getProductData(idProduct) {
     return data;
 }
 
+// price conversion 
+export const convertPrice = (price, coef) => {
+    return price / coef + " \u20AC";
+}
+
+// // calculate subtotal
+// export const giveSubTotal = (px, qte) => {
+//     return px * qte;
+// }
+
+// // total products number in cart
+// export const giveTotalProduct = () => {
+
+// }  
