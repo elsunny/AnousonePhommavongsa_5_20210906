@@ -12,13 +12,3 @@ export async function getProductData(idProduct) {
 export const convertPrice = (price, coef) => {
     return price / coef + " \u20AC";
 }
-
-// // calculate subtotal
-// export const giveSubTotal = (px, qte) => {
-//     return px * qte;
-// }
-
-// // total products number in cart
-// export const giveTotalProduct = () => {
-
-// }  
