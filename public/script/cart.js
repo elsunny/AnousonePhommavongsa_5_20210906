@@ -6,79 +6,92 @@ import { convertPrice } from "./module.js";
 
 // get the informations from localstorage
 const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
-
-// get the node for html template to display the cart content layout
+// get the node for html
 const cartTemplate = document.querySelector("#cartTemplate");
-
-// get the node for html insertion point
 const cartInsert = document.querySelector(".carts");
-
-// get the node for button send order
-const sendOrder = document.querySelector(".subtotal__btn");
-
-
+const productsTab = [];
 // ///////////////// show message if cart is empty otherwise show the cart /////////////
-if (cartProducts == null) {
-    document.querySelector(".cart__message").innerText =
-        "votre panier est vide";
-} else {
-    // replace the template value by the server value
-    // dynamique display of card for each product
-    cartProducts.forEach(async (cartProduct) => {
-        const theId = cartProduct.id;
-        const product = await getProductData(theId);
-        const cart = cartTemplate.content
-            .querySelector(".product")
-            .cloneNode(true);
-        cart.setAttribute("data-id", theId);
-        cart.setAttribute("data-price", product.price);
-        cart.querySelector(".product__caption h2").innerText = product.name;
-        cart.querySelector(".product__caption h3").innerText =
-            cartProduct.option;
-        cart.querySelector(".products__card__price").innerText = convertPrice(
-            product.price,
-            100
-        );
-        cart.querySelector(".product img").src = product.imageUrl;
-        cart.querySelector("select[name=qty]").value = cartProduct.qty;
+// if (cartProducts == null) {
+//     document.querySelector(".cart__message").innerText =
+//         "votre panier est vide";
+// } else {}
 
-        // insert the code in the container
-        cartInsert.appendChild(cart);
+// dynamique display of card for each product
+    cartProducts.forEach(async (cartProduct) => {
+        try {
+            const product = await getProductData(cartProduct.id);
+            productsTab.push(product);
+            console.log(productsTab);
+            const cart = cartTemplate.content
+                .querySelector(".product")
+                .cloneNode(true);
+
+            // cart.setAttribute("data-id", theId);
+            // cart.setAttribute("data-price", product.price);
+
+            // replace the template value by the server value and localstorage
+            cart.querySelector(".product__caption h2").innerText = product.name;
+            cart.querySelector(".product__caption h3").innerText =
+                cartProduct.option;
+            cart.querySelector(".products__card__price").innerText =
+                convertPrice(product.price, 100);
+            cart.querySelector(".product img").src = product.imageUrl;
+            cart.querySelector("select[name=qty]").value = cartProduct.qty;
+
+            // insert the code in the container
+            cartInsert.appendChild(cart);
+
+            //display total articles and price amount
+            displayTotal();
+        } catch (error) {
+            error;
+        }
     });
     
-}
 
-const displayTotal = () => {
-    // const {cartNum, total} = cartProducts.reduce((acc, cartProduct) => {
-    //     acc.cartNum += cartProduct.qty;
-    //     acc.total += product.price * cartProduct.qty;
-    //     return acc;
-    // },{cartNum:0, total:0})
+    const displayTotal = () => {
+        const { cartNum, cartTotal } = cartProducts.reduce(
+            (acc, cartProduct) => {
+                const myProduct = productsTab.find((p)=> {
+                    return (p._id === cartProduct.id)
+                })
+                acc.cartNum += cartProduct.qty;
+                if (myProduct) {
+                    console.log("myProduct", myProduct);
+                    acc.cartTotal += myProduct.price * cartProduct.qty;
+                }
+                console.log("acc", acc);
+                return acc;
+            },
+            { cartNum: 0, cartTotal: 0 }
+        );
 
-    let cartNum = 0;
-    let cartTotal = 0;
-    const cartNode = cartInsert.children;
-    console.log(cartNode[1]);
 
-    for (let i = 0; i < cartNode.length; i++) {
-        console.log(cartNode[i]);
-        // const qty = el.querySelector("select[name=qty]").value;
-        // cartNum += qty;
-    }
-    // console.log("cartNum " + cartNum);
+        // let cartNum = 0;
+        // let cartTotal = 0;
+        // const cartNode = cartInsert.children;
+        // console.log(cartNode);
+        // for (let i = 0; i < cartNode.length; i++) {
+        //     const qty = parseInt(
+        //         cartNode[i].querySelector("select[name=qty]").value
+        //     );
+        //     cartNum += qty;
+        // const priceProduct = cartNode[i].querySelector(
+        //     ".products__card__price"
+        // ).textContent;
+        // const priceProductNum = parseInt(priceProduct.replace(" €", ""));
+        // cartTotal += priceProductNum;
 
-    // show the products number in the cart
-    document.querySelector(
-        ".subtotal__items"
-    ).innerText = `(${cartNum} articles)`;
+        // }
+        console.log("hello ", cartNum, cartTotal);
+        // show the products number in the cart
+        document.querySelector(
+            ".subtotal__items"
+        ).innerText = `(${cartNum} articles)`;
 
-    //calcul subtotal price
-    document.querySelector(".subtotal__amount").innerText = convertPrice(
-        cartTotal,
-        100
-    );
-};
-displayTotal();
+        //calcul subtotal price
+        document.querySelector(".subtotal__amount").innerText = cartTotal;
+    };
 
 // //////////// remove a product //////////////////
 
