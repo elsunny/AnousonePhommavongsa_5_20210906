@@ -1,97 +1,82 @@
 // ///////////// js script for cart page cart.html //////////////////
 
-// fetch request for a specific product id
 import { getProductData } from "./module.js";
 import { convertPrice } from "./module.js";
 
 // get the informations from localstorage
 const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
+
 // get the node for html
 const cartTemplate = document.querySelector("#cartTemplate");
 const cartInsert = document.querySelector(".carts");
-const productsTab = [];
-// ///////////////// show message if cart is empty otherwise show the cart /////////////
-// if (cartProducts == null) {
-//     document.querySelector(".cart__message").innerText =
-//         "votre panier est vide";
-// } else {}
+
+// collect the products with all details on the server
+const serverProducts = [];
+
+
 
 // dynamique display of card for each product
     cartProducts.forEach(async (cartProduct) => {
+
         try {
+
+            // get the server product informations for the product in the cart
             const product = await getProductData(cartProduct.id);
-            productsTab.push(product);
-            console.log(productsTab);
-            const cart = cartTemplate.content
+            serverProducts.push(product);
+
+            // clone the html template
+            const cartPublish = cartTemplate.content
                 .querySelector(".product")
                 .cloneNode(true);
 
-            // cart.setAttribute("data-id", theId);
-            // cart.setAttribute("data-price", product.price);
-
-            // replace the template value by the server value and localstorage
-            cart.querySelector(".product__caption h2").innerText = product.name;
-            cart.querySelector(".product__caption h3").innerText =
+            // replace the html template value by the product in cart value
+            cartPublish.querySelector(".product__caption h2").innerText = product.name;
+            cartPublish.querySelector(".product__caption h3").innerText =
                 cartProduct.option;
-            cart.querySelector(".products__card__price").innerText =
+            cartPublish.querySelector(".products__card__price").innerText =
                 convertPrice(product.price, 100);
-            cart.querySelector(".product img").src = product.imageUrl;
-            cart.querySelector("select[name=qty]").value = cartProduct.qty;
+            cartPublish.querySelector(".product img").src = product.imageUrl;
+            cartPublish.querySelector("select[name=qty]").value = cartProduct.qty;
 
-            // insert the code in the container
-            cartInsert.appendChild(cart);
+            // insert the code in the html
+            cartInsert.appendChild(cartPublish);
 
-            //display total articles and price amount
+            // call display total items number and total price amount
             displayTotal();
+
         } catch (error) {
             error;
         }
+
     });
     
-
+    // function definition display total items number and total price amount
     const displayTotal = () => {
         const { cartNum, cartTotal } = cartProducts.reduce(
             (acc, cartProduct) => {
-                const myProduct = productsTab.find((p)=> {
+                const myProduct = serverProducts.find((p)=> {
                     return (p._id === cartProduct.id)
                 })
                 acc.cartNum += cartProduct.qty;
                 if (myProduct) {
-                    console.log("myProduct", myProduct);
                     acc.cartTotal += myProduct.price * cartProduct.qty;
                 }
-                console.log("acc", acc);
                 return acc;
             },
             { cartNum: 0, cartTotal: 0 }
         );
 
-
-        // let cartNum = 0;
-        // let cartTotal = 0;
-        // const cartNode = cartInsert.children;
-        // console.log(cartNode);
-        // for (let i = 0; i < cartNode.length; i++) {
-        //     const qty = parseInt(
-        //         cartNode[i].querySelector("select[name=qty]").value
-        //     );
-        //     cartNum += qty;
-        // const priceProduct = cartNode[i].querySelector(
-        //     ".products__card__price"
-        // ).textContent;
-        // const priceProductNum = parseInt(priceProduct.replace(" €", ""));
-        // cartTotal += priceProductNum;
-
-        // }
-        console.log("hello ", cartNum, cartTotal);
         // show the products number in the cart
         document.querySelector(
             ".subtotal__items"
         ).innerText = `(${cartNum} articles)`;
 
         //calcul subtotal price
-        document.querySelector(".subtotal__amount").innerText = cartTotal;
+        document.querySelector(".subtotal__amount").innerText = convertPrice (cartTotal, 100);
     };
+
+
+
 
 // //////////// remove a product //////////////////
 
@@ -132,13 +117,6 @@ form.addEventListener("submit", async (e) => {
         contact: contact,
         products: productId,
     };
-
-    // fetch("http://localhost:3000/api/cameras/order", init)
-    //     // Converting to JSON
-    //     .then((response) => response.json())
-
-    //     // Displaying results to console
-    //     .then((response) => console.log(response));
 
     // get order id information and store in localstorage order and customer details
     const data = await getOrderId(orderData);
