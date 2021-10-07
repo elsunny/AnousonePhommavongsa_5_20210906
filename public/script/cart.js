@@ -73,6 +73,31 @@ const serverProducts = [];
                 
             })
 
+            //remove the product
+            cartPublish.querySelector(".product__delete").addEventListener("click", (e)=>{
+                e.preventDefault();
+                const qtyUpdated = 0;
+                //get the id and option
+                const productId = cartPublish.getAttribute("data-id");
+                const productOption = cartPublish.getAttribute("data-option");
+                
+
+                // update the quantity localstorage
+                // cherche dans le localStorage où se trouve le produit dont la quantité a changée
+                const isInProducts = (pdt) => {
+                    return pdt.id === productId && pdt.option === productOption;
+                }
+                const productIndex = cartProducts.findIndex(isInProducts);
+                // cartProducts[productIndex].qty = parseInt(qtyUpdated);
+                cartProducts.splice(productIndex, 1);
+                localStorage.setItem("productInCart", JSON.stringify(cartProducts));
+
+                // update the amount and quantity display
+                displayTotal();
+                console.log("html product", cartPublish);
+                cartPublish.remove();
+            })
+
             // insert the code in the html
             cartInsert.appendChild(cartPublish);
 
