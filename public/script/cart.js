@@ -38,6 +38,41 @@ const serverProducts = [];
             cartPublish.querySelector(".product img").src = product.imageUrl;
             cartPublish.querySelector("select[name=qty]").value = cartProduct.qty;
 
+            // set dataset attribute to each product of the cart, it will help while updating the quantity
+            cartPublish.setAttribute("data-id", cartProduct.id);
+            cartPublish.setAttribute("data-option", cartProduct.option);
+
+            // add listener event on the product quantity selector
+            cartPublish.querySelector("select[name=qty]").addEventListener("change", (e)=>{
+                e.preventDefault();
+                // get the new quantity
+                const qtyUpdated = e.target.value;
+                // refresh the calculation
+
+                // get the price, the id and option of the product whom quantity has been updated
+                // get the price
+                let productPrice = cartPublish.querySelector(".products__card__price").textContent;
+                productPrice = parseInt(productPrice.replace(' €',""));
+
+                //get the id and option
+                const productId = cartPublish.getAttribute("data-id");
+                const productOption = cartPublish.getAttribute("data-option");
+                
+
+                // update the quantity localstorage
+                // cherche dans le localStorage où se trouve le produit dont la quantité a changée
+                const isInProducts = (pdt) => {
+                    return pdt.id === productId && pdt.option === productOption;
+                }
+                const productIndex = cartProducts.findIndex(isInProducts);
+                cartProducts[productIndex].qty = parseInt(qtyUpdated);
+                localStorage.setItem("productInCart", JSON.stringify(cartProducts));
+
+                // update the amount and quantity display
+                displayTotal();
+                
+            })
+
             // insert the code in the html
             cartInsert.appendChild(cartPublish);
 
