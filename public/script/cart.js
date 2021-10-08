@@ -185,7 +185,13 @@ form.addEventListener("submit", async (e) => {
         orderID: data.orderId,
     };
     localStorage.setItem("orderId", JSON.stringify(customerOrder));
+
+    // store in localstorage the total amount of ther order
+    //get subtotal price
+    const orderTotalAmount = document.querySelector(".subtotal__amount").textContent;
+    localStorage.setItem("orderAmount", JSON.stringify(orderTotalAmount));
 });
+
 
 async function getOrderId(orderData) {
     // option for the fetch with post method
