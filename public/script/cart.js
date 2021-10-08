@@ -82,13 +82,11 @@ const serverProducts = [];
                 const productOption = cartPublish.getAttribute("data-option");
                 
 
-                // update the quantity localstorage
-                // cherche dans le localStorage où se trouve le produit dont la quantité a changée
+                // delete the product in localstorage
                 const isInProducts = (pdt) => {
                     return pdt.id === productId && pdt.option === productOption;
                 }
                 const productIndex = cartProducts.findIndex(isInProducts);
-                // cartProducts[productIndex].qty = parseInt(qtyUpdated);
                 cartProducts.splice(productIndex, 1);
                 localStorage.setItem("productInCart", JSON.stringify(cartProducts));
 

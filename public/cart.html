@@ -95,11 +95,23 @@
                     <div class="form__id">
                         <div>
                             <label for="nom">votre nom</label>
-                            <input type="text" name="nom" id="nom" pattern="[A-Za-z]{3,12}" required/>
+                            <input
+                                type="text"
+                                name="nom"
+                                id="nom"
+                                pattern="[A-Za-z]{3,12}"
+                                required
+                            />
                         </div>
                         <div>
                             <label for="prenom">votre prenom</label>
-                            <input type="text" name="prenom" id="prenom" pattern="[A-Za-z]{3,12}" required/>
+                            <input
+                                type="text"
+                                name="prenom"
+                                id="prenom"
+                                pattern="[A-Za-z]{3,12}"
+                                required
+                            />
                         </div>
                         <div>
                             <label for="email">votre email</label>
@@ -130,27 +142,22 @@
                     <div class="form__adresse">
                         <div>
                             <label for="adresse">votre adresse</label>
-                            <input
-                                type="text"
-                                name="adresse"
-                                id="adresse"
-                            />
+                            <input type="text" name="adresse" id="adresse" />
                         </div>
                         <div>
                             <label for="ville">votre ville</label>
-                            <input
-                                type="tel"
-                                name="ville"
-                                id="ville"
-                                max="5"
-                            />
+                            <input type="tel" name="ville" id="ville" max="5" />
                         </div>
                         <div>
                             <label for="pays">votre pays</label>
                             <input type="text" name="pays" id="pays" />
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn__order">passer la commande</button>
+                    <a href="confirmation.html">
+                        <button type="submit" name="submit" class="btn__order">
+                            passer la commande
+                        </button>
+                    </a>
                 </form>
             </div>
         </main>
