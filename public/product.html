@@ -103,25 +103,8 @@
             <div class="option">
                 <p>Sélectionnez un objectif:</p>
                 <br />
-                <div>
-                    <label for="option_objectif_1">
-                        <input
-                            type="radio"
-                            id="option_objectif_1"
-                            name="option"
-                            value="objectif_1"
-                            checked
-                        />objectif 1
-                    </label>
-                    <label for="option_objectif_2">
-                        <input
-                            type="radio"
-                            id="option_objectif_2"
-                            name="option"
-                            value="objectif_2"
-                        />
-                        objectif 2
-                    </label>
+                <div class="options__product">
+                    <!-- product options are inserted here -->
                 </div>
             </div>
             <!-- button add to cart -->
@@ -144,5 +127,16 @@
                 <a href="mailto:contact@onorico.fr"> contact@onorico.fr </a>
             </h3>
         </footer>
+        <template id="optionTemplate">
+            <label class="labelOption" for="option_objectif">
+                <input
+                    type="radio"
+                    id="option_objectif"
+                    name="option"
+                    value="objectif"
+                    checked
+                /><span>Objectif</span> 
+            </label>
+        </template>
     </body>
 </html>

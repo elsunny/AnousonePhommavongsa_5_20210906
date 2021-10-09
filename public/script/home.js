@@ -19,6 +19,7 @@ async function getAndDisplayProduct() {
         const productCard = productTemplate.content
             .querySelector(".products__card__item")
             .cloneNode(true);
+
         // const productCard = document.importNode(productTemplate.content, true)
         productCard.querySelector(".products__card__item__image img").src =
             product.imageUrl;
