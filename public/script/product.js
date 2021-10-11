@@ -79,18 +79,24 @@ addToCartBtn.addEventListener("click", () => {
         productBought = new ProductBought(productId, optionSelection);
         productsArray.push(productBought);
     }
-    productBought.qty += 1;
-    localStorage.setItem("productInCart", JSON.stringify(productsArray));
+    if (productBought.qty < 10) {
+        productBought.qty += 1;
+        localStorage.setItem("productInCart", JSON.stringify(productsArray));
+
+        // ============= message pop up product added to cart ===============
+        showMessage("Votre produit a été ajouté au panier");
+    } else {
+        showMessage("L'achat est limité à 10 produits identiques");
+        document.querySelector("#divMsg").style.backgroundColor = "red";
+    }
 
 
-    // ============= message pop up product added to cart ===============
-    showMessage();
     
 });
 
-const showMessage = () => {
+const showMessage = (info) => {
     const msg = document.querySelector("#divMsg");
-    msg.innerHTML = "<span>Votre produit a été ajouté au panier</span>";
+    msg.innerHTML = `<span>${info}</span>`;
     msg.setAttribute("class", "msgAddToCart");
     setTimeout(() =>{
         msg.setAttribute("class", "");
