@@ -13,4 +13,10 @@ export const convertPrice = (price, coef) => {
     return price / coef + " \u20AC";
 }
 
+// back button to history
+export const backBtn = () => {
+    document.querySelector(".previous__btn").addEventListener("click", ()=>{
+        window.history.back();
+    });
 
+}

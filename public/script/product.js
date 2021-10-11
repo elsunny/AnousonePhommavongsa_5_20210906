@@ -1,5 +1,9 @@
 // /////////////// js script on product details product.html //////////////////////
-import { convertPrice, getProductData } from "./module.js";
+import { convertPrice, getProductData, backBtn } from "./module.js";
+
+
+// back button call
+backBtn();
 
 // container for the options
 const productOptions = document.querySelector(".options__product");

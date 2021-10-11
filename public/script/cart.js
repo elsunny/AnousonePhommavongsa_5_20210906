@@ -1,7 +1,9 @@
 // ///////////// js script for cart page cart.html //////////////////
 
-import { getProductData } from "./module.js";
-import { convertPrice } from "./module.js";
+import { getProductData, convertPrice, backBtn } from "./module.js";
+
+// back button call
+backBtn();
 
 // get the informations from localstorage
 const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
@@ -185,6 +187,8 @@ form.addEventListener("submit", async (e) => {
     //get subtotal price
     const orderTotalAmount = document.querySelector(".subtotal__amount").textContent;
     localStorage.setItem("orderAmount", JSON.stringify(orderTotalAmount));
+
+    window.location = e.target.action;
 });
 
 
