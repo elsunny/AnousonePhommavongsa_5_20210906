@@ -13,3 +13,4 @@ export const convertPrice = (price, coef) => {
     return price / coef + " \u20AC";
 }
 
+

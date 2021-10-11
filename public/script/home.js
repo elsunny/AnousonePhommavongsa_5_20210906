@@ -1,4 +1,6 @@
 // /////////////// js script on homepage index.html //////////////////////
+import { convertPrice } from "./module.js";
+
 
 // container for the products cards
 const productCards = document.querySelector(".products__card");
@@ -25,7 +27,7 @@ async function getAndDisplayProduct() {
             product.imageUrl;
         productCard.querySelector(".products__card__item__link").setAttribute('href', `product.html?_id=${product._id}`);
         productCard.querySelector(".products__card__item__title").innerText = product.name;
-        productCard.querySelector(".products__card__price").innerText = product.price;
+        productCard.querySelector(".products__card__price").innerText = convertPrice(product.price, 100);
 
         // insert the code in the container 
         productCards.appendChild(productCard);

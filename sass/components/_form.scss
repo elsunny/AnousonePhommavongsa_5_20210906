@@ -31,8 +31,8 @@
 }
 
 form {
-    background: variables.$clr-5;
-    padding: 0 10px;
+    // background: variables.$clr-5;
+    // padding: 0 10px;
     button {
         @include mixins.colored-btn(variables.$clr-4);
         margin-bottom: 60px;

@@ -15,7 +15,8 @@ const serverProducts = [];
 
 
 
-// dynamique display of card for each product
+// ============ dynamique display of card for each product found in the localstorage ============
+
     cartProducts.forEach(async (cartProduct) => {
 
         try {
@@ -42,28 +43,27 @@ const serverProducts = [];
             cartPublish.setAttribute("data-id", cartProduct.id);
             cartPublish.setAttribute("data-option", cartProduct.option);
 
-            // add listener event on the product quantity selector
-            cartPublish.querySelector("select[name=qty]").addEventListener("change", (e)=>{
-                e.preventDefault();
-                // get the new quantity
-                const qtyUpdated = e.target.value;
-                // refresh the calculation
-
-                // get the price, the id and option of the product whom quantity has been updated
-                // get the price
-                let productPrice = cartPublish.querySelector(".products__card__price").textContent;
-                productPrice = parseInt(productPrice.replace(' €',""));
+            const isInProducts = (pdt) => {
 
                 //get the id and option
                 const productId = cartPublish.getAttribute("data-id");
                 const productOption = cartPublish.getAttribute("data-option");
-                
 
-                // update the quantity localstorage
-                // cherche dans le localStorage où se trouve le produit dont la quantité a changée
-                const isInProducts = (pdt) => {
-                    return pdt.id === productId && pdt.option === productOption;
-                }
+                return pdt.id === productId && pdt.option === productOption;
+            }
+            
+
+            // =============== customer change the product quantity ================
+
+            // add listener event on the product quantity selector
+            cartPublish.querySelector("select[name=qty]").addEventListener("change", (e)=>{
+                
+                e.preventDefault();
+                
+                // get the new quantity
+                const qtyUpdated = e.target.value;
+
+                // update the quantity in localStorage
                 const productIndex = cartProducts.findIndex(isInProducts);
                 cartProducts[productIndex].qty = parseInt(qtyUpdated);
                 localStorage.setItem("productInCart", JSON.stringify(cartProducts));
@@ -73,26 +73,22 @@ const serverProducts = [];
                 
             })
 
-            //remove the product
-            cartPublish.querySelector(".product__delete").addEventListener("click", (e)=>{
-                e.preventDefault();
-                const qtyUpdated = 0;
-                //get the id and option
-                const productId = cartPublish.getAttribute("data-id");
-                const productOption = cartPublish.getAttribute("data-option");
-                
 
-                // delete the product in localstorage
-                const isInProducts = (pdt) => {
-                    return pdt.id === productId && pdt.option === productOption;
-                }
+            // ================== customer remove the product ========================
+
+            cartPublish.querySelector(".product__delete").addEventListener("click", (e)=>{
+                
+                e.preventDefault();
+                
+                const qtyUpdated = 0;
+
+                // updtade the quantity in localstorage
                 const productIndex = cartProducts.findIndex(isInProducts);
                 cartProducts.splice(productIndex, 1);
                 localStorage.setItem("productInCart", JSON.stringify(cartProducts));
 
                 // update the amount and quantity display
                 displayTotal();
-                console.log("html product", cartPublish);
                 cartPublish.remove();
             })
 
@@ -136,9 +132,8 @@ const serverProducts = [];
 
 
 
-// //////////// remove a product //////////////////
 
-// /////////////// send to server form and cart order //////////////////////
+// ================= send to server form and cart order ===================
 
 const form = document.getElementById("cartForm");
 
