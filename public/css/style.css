@@ -39,7 +39,7 @@ html {
 
 h1 {
   font-size: 33px;
-  color: #1ABC9C;
+  color: #1abc9c;
   font-weight: normal;
   font-style: normal;
   text-transform: capitalize;
@@ -58,7 +58,7 @@ h2 {
 @media screen and (min-width: 768px) {
   #page__cart figcaption h2 {
     font-size: 25px;
-    color: #1ABC9C;
+    color: #1abc9c;
     font-weight: normal;
     font-style: normal;
     line-height: 37px;
@@ -67,7 +67,7 @@ h2 {
 }
 #page__cart h4 {
   font-size: 28px;
-  color: #1ABC9C;
+  color: #1abc9c;
   font-weight: normal;
   font-style: normal;
   text-transform: capitalize;
@@ -150,7 +150,7 @@ header {
 }
 .header__nav__button--connecter__icon, .header__nav__button--cart__icon {
   margin-right: 20px;
-  color: #1ABC9C;
+  color: #1abc9c;
 }
 .header__nav__button--connecter {
   display: none;
@@ -171,16 +171,16 @@ header {
 }
 
 .hero__btn {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
   padding: 10px 15px;
-  background: #1ABC9C;
+  background: #1abc9c;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .products__button--more button {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
   padding: 10px 15px;
   background: transparent;
   color: #2E2B2B;
@@ -212,9 +212,9 @@ header {
 }
 
 .product-details__add-btn {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
   padding: 10px 15px;
-  background: #1ABC9C;
+  background: #1abc9c;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
@@ -231,7 +231,7 @@ header {
 }
 
 .product__delete {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
   padding: 10px 15px;
   background: transparent;
   color: #2E2B2B;
@@ -269,7 +269,7 @@ header {
 
 .button--dione::before {
   content: "";
-  background: #1ABC9C;
+  background: #1abc9c;
   transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
 }
 
@@ -279,7 +279,7 @@ header {
 
 .button--dione::after {
   content: "";
-  border: 1px solid #1ABC9C;
+  border: 1px solid #1abc9c;
   transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
   border-radius: 0px;
   transform: scale3d(0.85, 0.65, 1);
@@ -426,7 +426,7 @@ footer a {
   padding-top: 16px;
   padding-bottom: 10px;
   font-size: 25px;
-  color: #1ABC9C;
+  color: #1abc9c;
 }
 
 .break-flex {
@@ -443,7 +443,7 @@ footer a {
   background: #ffffff;
 }
 #page__product .header__nav__search__input {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
 }
 
 .previous__btn {
@@ -525,6 +525,23 @@ footer a {
 }
 .product-details__description {
   padding: 30px 0;
+}
+
+.msgAddToCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  background: #1abc9c;
+  font-weight: bold;
+  text-transform: unset;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  z-index: 200;
+  top: 45px;
+  right: 16px;
+  visibility: none;
 }
 
 .cart__subtotal {
@@ -629,9 +646,9 @@ footer a {
 }
 
 form button {
-  border: solid 1px #1ABC9C;
+  border: solid 1px #1abc9c;
   padding: 10px 15px;
-  background: #1ABC9C;
+  background: #1abc9c;
   color: white;
   text-transform: uppercase;
   font-weight: bold;

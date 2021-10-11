@@ -82,6 +82,21 @@ addToCartBtn.addEventListener("click", () => {
     productBought.qty += 1;
     localStorage.setItem("productInCart", JSON.stringify(productsArray));
 
+
+    // ============= message pop up product added to cart ===============
+    showMessage();
     
 });
+
+const showMessage = () => {
+    const msg = document.querySelector("#divMsg");
+    msg.innerHTML = "<span>Votre produit a été ajouté au panier</span>";
+    msg.setAttribute("class", "msgAddToCart");
+    setTimeout(() =>{
+        msg.setAttribute("class", "");
+        msg.innerHTML = "";
+    }, 1200)
+
+}
+
 
