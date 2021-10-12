@@ -71,82 +71,16 @@
             <div class="container-cart">
                 <!-- cart subtotal -->
                 <aside class="cart__subtotal">
-                    
-                    <form id="cartForm" action="confirmation.html" method="post">
-                        <!-- <h4>formulaire de commande</h4> -->
-                        <div class="cart__subtotal__container">
-                            <div class="subtotal">
-                                <span>sous-total</span>
-                                <span class="subtotal__items">(0 article)</span>
-                                <span class="subtotal__amount">0 €</span>
-                            </div>
-                            
+                    <div class="cart__subtotal__container">
+                        <div class="subtotal">
+                            <span>sous-total</span>
+                            <span class="subtotal__items">(0 article)</span>
+                            <span class="subtotal__amount">0 €</span>
                         </div>
-                        <div class="form__id">
-                            <div>
-                                <label for="nom">votre nom</label>
-                                <input
-                                    type="text"
-                                    name="nom"
-                                    id="nom"
-                                    pattern="[A-Za-z]{3,12}"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label for="prenom">votre prenom</label>
-                                <input
-                                    type="text"
-                                    name="prenom"
-                                    id="prenom"
-                                    pattern="[A-Za-z]{3,12}"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label for="email">votre email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="votre@email.com"
-                                    pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"
-                                    title="votre email doit contenir au moins ou un seul @"
-                                    required
-                                />
-                                <small></small>
-                            </div>
-                            <div>
-                                <label for="telephone">votre telephone</label>
-                                <input
-                                    type="number"
-                                    name="telephone"
-                                    id="telephone"
-                                    pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
-                                    title="entrez votre numéro de téléphone avec l'indicatif du pays svp"
-                                    required
-                                />
-                                <small></small>
-                            </div>
-                        </div>
-                        <div class="form__adresse">
-                            <div>
-                                <label for="adresse">votre adresse</label>
-                                <input type="text" name="adresse" id="adresse" />
-                            </div>
-                            <div>
-                                <label for="ville">votre ville</label>
-                                <input type="tel" name="ville" id="ville" max="5" />
-                            </div>
-                            <div>
-                                <label for="pays">votre pays</label>
-                                <input type="text" name="pays" id="pays" />
-                            </div>
-                        </div>
-                        <button type="submit" name="submit" class="subtotal__btn btn__order button button--dione">
+                        <button class="subtotal__btn btn__order button button--dione">
                             <span>Passez la commande</span>
                         </button>
-                    </form>
+                    </div>
                 </aside>
                 <!-- cart details -->
                 <section>
@@ -156,7 +90,73 @@
                         <!-- dynamic insert template for cartProduct -->
                     </div>
                 </section>
-                
+                <form id="cartForm" action="confirmation.html" method="post">
+                    <h4>formulaire de commande</h4>
+                    <div class="form__id">
+                        <div>
+                            <label for="nom">votre nom</label>
+                            <input
+                                type="text"
+                                name="nom"
+                                id="nom"
+                                pattern="[A-Za-z]{3,12}"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="prenom">votre prenom</label>
+                            <input
+                                type="text"
+                                name="prenom"
+                                id="prenom"
+                                pattern="[A-Za-z]{3,12}"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="email">votre email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="votre@email.com"
+                                pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+"
+                                title="votre email doit contenir au moins ou un seul @"
+                                required
+                            />
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="telephone">votre telephone</label>
+                            <input
+                                type="number"
+                                name="telephone"
+                                id="telephone"
+                                pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+                                title="entrez votre numéro de téléphone avec l'indicatif du pays svp"
+                                required
+                            />
+                            <small></small>
+                        </div>
+                    </div>
+                    <div class="form__adresse">
+                        <div>
+                            <label for="adresse">votre adresse</label>
+                            <input type="text" name="adresse" id="adresse" />
+                        </div>
+                        <div>
+                            <label for="ville">votre ville</label>
+                            <input type="tel" name="ville" id="ville" max="5" />
+                        </div>
+                        <div>
+                            <label for="pays">votre pays</label>
+                            <input type="text" name="pays" id="pays" />
+                        </div>
+                    </div>
+                        <button type="submit" name="submit" class="btn__order button button--dione">
+                            <span>Passez la commande</span> 
+                        </button>
+                </form>
             </div>
         </main>
         <!-- /////////////// footer section /////////////// -->

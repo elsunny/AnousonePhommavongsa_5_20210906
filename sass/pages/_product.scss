@@ -109,21 +109,5 @@
     }
 }
 
-// message add to cart pop up
-.msgAddToCart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 350px;
-    background: rgba(26, 188, 156, 1);
-    font-weight: bold;
-    text-transform: unset;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    z-index: 200;
-    top: 45px;
-    right: 16px;
-    visibility: none;
-}
+
 

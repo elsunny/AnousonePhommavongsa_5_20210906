@@ -1,6 +1,6 @@
 // ///////////// js script for cart page cart.html //////////////////
 
-import { getProductData, convertPrice, backBtn } from "./module.js";
+import { getProductData, convertPrice, backBtn, toastMessage } from "./module.js";
 
 // back button call
 backBtn();
@@ -101,7 +101,8 @@ const serverProducts = [];
             displayTotal();
 
         } catch (error) {
-            error;
+            console.log("Nous avons rencontré une erreur " + error);
+            toastMessage("nous avons rencontré un problème!", "red", 5000);
         }
 
     });
@@ -151,61 +152,78 @@ class Customer {
 
 // sending the order to server
 form.addEventListener("submit", async (e) => {
-    e.preventDefault();
 
-    // get the form informations filled by the customer
-    let contact = new Customer(
-        form.querySelector("input[name=nom]").value,
-        form.querySelector("input[name=prenom]").value,
-        form.querySelector("input[name=adresse]").value,
-        form.querySelector("input[name=ville]").value,
-        form.querySelector("input[name=email]").value
-    );
+    try {
 
-    //product id from the customer cart
-    const productId = cartProducts.map((p) => {
-        return p.id;
-    });
 
-    // collect customer informations and products ordered
-    let orderData = {
-        contact: contact,
-        products: productId,
-    };
+        e.preventDefault();
+    
+        // get the form informations filled by the customer
+        let contact = new Customer(
+            form.querySelector("input[name=nom]").value,
+            form.querySelector("input[name=prenom]").value,
+            form.querySelector("input[name=adresse]").value,
+            form.querySelector("input[name=ville]").value,
+            form.querySelector("input[name=email]").value
+        );
+    
+        //product id from the customer cart
+        const productId = cartProducts.map((p) => {
+            return p.id;
+        });
+    
+        // collect customer informations and products ordered
+        let orderData = {
+            contact: contact,
+            products: productId,
+        };
+    
+        // get order id information and store in localstorage order and customer details
+        const data = await getOrderId(orderData);
+    
+        const customerOrder = {
+            name: data.contact.firstName,
+            lastName: data.contact.lastName,
+            orderID: data.orderId,
+        };
+        localStorage.setItem("orderId", JSON.stringify(customerOrder));
+    
+        // store in localstorage the total amount of ther order
+        //get subtotal price
+        const orderTotalAmount = document.querySelector(".subtotal__amount").textContent;
+        localStorage.setItem("orderAmount", JSON.stringify(orderTotalAmount));
+    
+        window.location = e.target.action;
 
-    // get order id information and store in localstorage order and customer details
-    const data = await getOrderId(orderData);
-
-    const customerOrder = {
-        name: data.contact.firstName,
-        lastName: data.contact.lastName,
-        orderID: data.orderId,
-    };
-    localStorage.setItem("orderId", JSON.stringify(customerOrder));
-
-    // store in localstorage the total amount of ther order
-    //get subtotal price
-    const orderTotalAmount = document.querySelector(".subtotal__amount").textContent;
-    localStorage.setItem("orderAmount", JSON.stringify(orderTotalAmount));
-
-    window.location = e.target.action;
+    } catch (error) {
+        console.log("Nous avons rencontré une erreur " + error);
+        toastMessage("nous avons rencontré un problème!", "red", 5000);
+    }
 });
 
 
 async function getOrderId(orderData) {
-    // option for the fetch with post method
-    const init = {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderData),
-    };
 
-    const reponse = await fetch(
-        "http://localhost:3000/api/cameras/order",
-        init
-    );
-    return reponse.json();
+    try {
+
+        // option for the fetch with post method
+        const init = {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData),
+        };
+    
+        const reponse = await fetch(
+            "http://localhost:3000/api/cameras/order",
+            init
+        );
+        return reponse.json();
+
+    } catch (error) {
+        console.log("Nous avons rencontré une erreur " + error);
+        toastMessage("nous avons rencontré un problème!", "red", 5000);
+    }
 }

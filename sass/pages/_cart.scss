@@ -30,7 +30,7 @@
         // display: flex;
         // flex-wrap: wrap;
         display: grid;
-        grid-template-columns: 1fr 165px;
+        grid-template-columns: 1fr 400px;
         grid-gap: 10px;
         .cart__subtotal {
             // flex-grow: 2;
@@ -41,9 +41,10 @@
             text-transform: capitalize;
             background: variables.$clr-2;
             &__container {
-                background: variables.$clr-5;
+                background: variables.$clr-2;
+                font-weight: bold;
                 padding-top: 10px;
-                padding-bottom: 10px;
+                padding-bottom: 30px;
             }
         }
         .cart {

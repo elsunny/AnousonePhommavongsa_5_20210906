@@ -527,23 +527,6 @@ footer a {
   padding: 30px 0;
 }
 
-.msgAddToCart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 350px;
-  background: #1abc9c;
-  font-weight: bold;
-  text-transform: unset;
-  color: white;
-  padding: 10px;
-  position: fixed;
-  z-index: 200;
-  top: 45px;
-  right: 16px;
-  visibility: none;
-}
-
 .cart__subtotal {
   background: #ffffff;
   margin: 0 -20px;
@@ -567,7 +550,7 @@ footer a {
 @media screen and (min-width: 768px) {
   .container-cart {
     display: grid;
-    grid-template-columns: 1fr 165px;
+    grid-template-columns: 1fr 400px;
     grid-gap: 10px;
   }
   .container-cart .cart__subtotal {
@@ -578,9 +561,10 @@ footer a {
     background: #E5E5E5;
   }
   .container-cart .cart__subtotal__container {
-    background: #ffffff;
+    background: #E5E5E5;
+    font-weight: bold;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
   .container-cart .cart {
     background: #ffffff;
@@ -653,6 +637,22 @@ form button {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 60px;
+}
+
+.toastMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  background: #1abc9c;
+  font-weight: bold;
+  text-transform: unset;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  z-index: 200;
+  top: 45px;
+  right: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */

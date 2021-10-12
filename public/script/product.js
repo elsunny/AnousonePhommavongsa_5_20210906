@@ -1,5 +1,5 @@
 // /////////////// js script on product details product.html //////////////////////
-import { convertPrice, getProductData, backBtn } from "./module.js";
+import { convertPrice, getProductData, backBtn, toastMessage } from "./module.js";
 
 
 // back button call
@@ -61,48 +61,44 @@ class ProductBought {
 
 const addToCartBtn = document.querySelector(".product-details__add-btn");
 addToCartBtn.addEventListener("click", () => {
-    // get the option selected by user
-    const optionSelection = document.querySelector(
-        'input[type="radio"]:checked'
-    ).value;
 
-    // array loading already bought object from localstorage
-    const productsArray =
-        JSON.parse(localStorage.getItem("productInCart")) || [];
+    try {
 
-    let productBought = productsArray.find((p) => {
-        //looking for product with same id and option
-        return p.id === productId && p.option === optionSelection;
-    });
+        // get the option selected by user
+        const optionSelection = document.querySelector(
+            'input[type="radio"]:checked'
+        ).value;
+    
+        // array loading already bought object from localstorage
+        const productsArray =
+            JSON.parse(localStorage.getItem("productInCart")) || [];
+    
+        let productBought = productsArray.find((p) => {
+            //looking for product with same id and option
+            return p.id === productId && p.option === optionSelection;
+        });
+    
+        if (!productBought) {
+            productBought = new ProductBought(productId, optionSelection);
+            productsArray.push(productBought);
+        }
+        if (productBought.qty < 10) {
+            productBought.qty += 1;
+            localStorage.setItem("productInCart", JSON.stringify(productsArray));
+    
+            // ============= toast message pop up product added to cart ===============
+            toastMessage("Votre produit a été ajouté au panier", "" , 1200);
+        } else {
+            toastMessage("L'achat est limité à 10 produits identiques", "red", 2000);
+        }
 
-    if (!productBought) {
-        productBought = new ProductBought(productId, optionSelection);
-        productsArray.push(productBought);
-    }
-    if (productBought.qty < 10) {
-        productBought.qty += 1;
-        localStorage.setItem("productInCart", JSON.stringify(productsArray));
 
-        // ============= message pop up product added to cart ===============
-        showMessage("Votre produit a été ajouté au panier");
-    } else {
-        showMessage("L'achat est limité à 10 produits identiques");
-        document.querySelector("#divMsg").style.backgroundColor = "red";
-    }
-
+    } catch(error) {
+        console.log("nous avons rencontré une erreur " + error);
+        toastMessage("nous avons rencontré un problème!", "red", 5000);
+    }   
 
     
 });
-
-const showMessage = (info) => {
-    const msg = document.querySelector("#divMsg");
-    msg.innerHTML = `<span>${info}</span>`;
-    msg.setAttribute("class", "msgAddToCart");
-    setTimeout(() =>{
-        msg.setAttribute("class", "");
-        msg.innerHTML = "";
-    }, 1200)
-
-}
 
 
