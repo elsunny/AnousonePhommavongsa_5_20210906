@@ -1,6 +1,10 @@
 // /////////////// js script on product details product.html //////////////////////
-import { convertPrice, getProductData, backBtn, toastMessage } from "./module.js";
-
+import {
+    convertPrice,
+    getProductData,
+    backBtn,
+    toastMessage,
+} from "./module.js";
 
 // back button call
 backBtn();
@@ -9,7 +13,7 @@ backBtn();
 const productOptions = document.querySelector(".options__product");
 
 // get the html template for the options display
-const optionsProductTemplate = document.querySelector("#optionTemplate")
+const optionsProductTemplate = document.querySelector("#optionTemplate");
 
 // get window url window.location
 // searh for a string in the url with get
@@ -30,19 +34,24 @@ const runProductDisplay = async () => {
     document.querySelector(".product-details__description").innerText =
         data.description;
     document.querySelector(".products__card__price").innerText = productPrice;
-        
 
     // dynamic display of the product options
     data.lenses.forEach((opt) => {
         const optionDisplay = optionsProductTemplate.content.cloneNode(true);
         optionDisplay.querySelector(".labelOption").setAttribute("for", opt);
-        const oups = optionDisplay.querySelector(".labelOption span").innerText = opt;
-        optionDisplay.querySelector(".labelOption input").setAttribute("id", opt);
-        optionDisplay.querySelector(".labelOption input").setAttribute("value", opt);
+        const oups = (optionDisplay.querySelector(
+            ".labelOption span"
+        ).innerText = opt);
+        optionDisplay
+            .querySelector(".labelOption input")
+            .setAttribute("id", opt);
+        optionDisplay
+            .querySelector(".labelOption input")
+            .setAttribute("value", opt);
 
-        // insert the code in the container 
+        // insert the code in the container
         productOptions.appendChild(optionDisplay);
-    })
+    });
 };
 runProductDisplay();
 
@@ -61,44 +70,43 @@ class ProductBought {
 
 const addToCartBtn = document.querySelector(".product-details__add-btn");
 addToCartBtn.addEventListener("click", () => {
-
     try {
-
         // get the option selected by user
         const optionSelection = document.querySelector(
             'input[type="radio"]:checked'
         ).value;
-    
+
         // array loading already bought object from localstorage
         const productsArray =
             JSON.parse(localStorage.getItem("productInCart")) || [];
-    
+
         let productBought = productsArray.find((p) => {
             //looking for product with same id and option
             return p.id === productId && p.option === optionSelection;
         });
-    
+
         if (!productBought) {
             productBought = new ProductBought(productId, optionSelection);
             productsArray.push(productBought);
         }
         if (productBought.qty < 10) {
             productBought.qty += 1;
-            localStorage.setItem("productInCart", JSON.stringify(productsArray));
-    
+            localStorage.setItem(
+                "productInCart",
+                JSON.stringify(productsArray)
+            );
+
             // ============= toast message pop up product added to cart ===============
-            toastMessage("Votre produit a été ajouté au panier", "" , 1200);
+            toastMessage("Votre produit a été ajouté au panier", "", 1200);
         } else {
-            toastMessage("L'achat est limité à 10 produits identiques", "red", 2000);
+            toastMessage(
+                "L'achat est limité à 10 produits identiques",
+                "red",
+                2000
+            );
         }
-
-
-    } catch(error) {
+    } catch (error) {
         console.log("nous avons rencontré une erreur " + error);
         toastMessage("nous avons rencontré un problème!", "red", 5000);
-    }   
-
-    
+    }
 });
-
-

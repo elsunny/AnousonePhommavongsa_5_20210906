@@ -1,8 +1,6 @@
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
-
-
 .hero {
     @include mixins.breakpoint(tablet) {
         display: flex;
@@ -70,8 +68,6 @@
     }
 }
 
-
-
 // background color for product section
 .products {
     padding-top: 20px;
@@ -99,7 +95,6 @@
         }
         display: none;
     }
-    
 }
 
 // hide show more product button and position it
@@ -123,7 +118,7 @@
     &__last {
         margin-right: auto;
     }
-    &__image img{
+    &__image img {
         // set the image size
         width: 328.16px;
         height: 244.98px;
@@ -150,9 +145,8 @@
 // break the element line after 2 elements in the products__card flexbox while screen is in tablet
 .break-flex {
     @include mixins.breakpoint(laptop) {
-      display: none;
+        display: none;
     }
     width: 100%;
     border: 0;
-  }
-
+}

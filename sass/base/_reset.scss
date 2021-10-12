@@ -17,13 +17,14 @@ a {
     color: variables.$clr-1;
 }
 
-
 //fit the main section in the page regarding header and footer height
 .home-details,
 .product-details,
 .cart-details,
-.confirmation-details   {
-    min-height: calc(100vh - #{variables.$header_height} - #{variables.$footer_height});
+.confirmation-details {
+    min-height: calc(
+        100vh - #{variables.$header_height} - #{variables.$footer_height}
+    );
 }
 
 // limit the size of the main presentation on laptop screen

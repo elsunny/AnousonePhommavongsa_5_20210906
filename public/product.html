@@ -27,22 +27,20 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <script type="module" src="../public/script/product.js" defer></script>
+        <script type="module" src="../public/script/product.js"></script>
         <!-- <script>console.log(window.location)</script> -->
     </head>
 
     <body id="page__product">
         <!-- information pop up to alert that product is added to cart -->
-        <div id="divMsg" class="">
-            
-        </div>
+        <div id="divMsg" class=""></div>
         <header>
             <div class="header__logo">
                 <a href="index.html">vintedcamera</a>
             </div>
 
             <!-- ///////////////////// main navigation section ///////////////////// -->
-            <form action="" class="header__nav__search">
+            <form class="header__nav__search">
                 <input type="text" class="header__nav__search__input" />
             </form>
             <nav class="header__nav">
@@ -67,7 +65,6 @@
             </nav>
         </header>
         <main class="product-details">
-            
             <!-- back previous page button -->
             <button class="previous__btn">
                 <i class="fas fa-arrow-left"></i>
@@ -113,7 +110,9 @@
                 </div>
             </div>
             <!-- button add to cart -->
-            <button class="product-details__add-btn button button--dione"><span>ajouter au panier</span></button>
+            <button class="product-details__add-btn button button--dione">
+                <span>ajouter au panier</span>
+            </button>
             <!-- product description -->
             <div class="product-details__description">
                 <p>
@@ -140,7 +139,7 @@
                     name="option"
                     value="objectif"
                     checked
-                /><span>Objectif</span> 
+                /><span>Objectif</span>
             </label>
         </template>
     </body>

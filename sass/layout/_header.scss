@@ -33,7 +33,7 @@ header {
             display: none;
         }
     }
-    
+
     &__nav {
         @include mixins.breakpoint(tablet) {
             // fix the size of the nav to let more space for the search bar in the flex

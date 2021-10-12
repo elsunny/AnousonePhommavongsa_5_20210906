@@ -27,7 +27,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <script type="module" src="./script/home.js" defer></script>
+        <script type="module" src="./script/home.js"></script>
     </head>
 
     <body>
@@ -98,6 +98,7 @@
                     </div>
                 </div> -->
                 <!-- cards section -->
+                <h2>Nos appareils photos</h2>
                 <div class="products__card">
                     <!-- #productTemplate is inserted here -->
                 </div>
@@ -115,12 +116,17 @@
         </footer>
         <template id="productTemplate">
             <figure class="products__card__item">
-                <a class="products__card__item__link" href="product.html?id=5be1ed3f1c9d44000030b061">
+                <a
+                    class="products__card__item__link"
+                    href="product.html?id=5be1ed3f1c9d44000030b061"
+                >
                     <div class="products__card__item__image">
-                        <img src="#" alt="image de l'appareil photo">
+                        <img src="#" alt="image de l'appareil photo" />
                     </div>
                     <figcaption>
-                        <h2 class="products__card__item__title">product title</h2>
+                        <h2 class="products__card__item__title">
+                            product title
+                        </h2>
                         <div class="products__card__notation">
                             <!-- <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -134,14 +140,11 @@
                             >
                                 (561)
                             </span> -->
-                            <div class="products__card__price">
-                                129€
-                            </div>
+                            <div class="products__card__price">129€</div>
                         </div>
                     </figcaption>
                 </a>
             </figure>
         </template>
-        
     </body>
 </html>

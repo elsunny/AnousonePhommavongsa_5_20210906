@@ -7,19 +7,19 @@
 }
 
 body {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 
 a {
   text-decoration: none;
-  color: #2E2B2B;
+  color: #2e2b2b;
 }
 
 .home-details,
 .product-details,
 .cart-details,
 .confirmation-details {
-  min-height: calc(100vh - 43px - 160px);
+  min-height: calc( 100vh - 43px - 160px );
 }
 
 .confirmation-details,
@@ -34,7 +34,7 @@ html {
   font-family: "roboto", sans-serif;
   font-weight: lighter;
   font-style: normal;
-  color: #2E2B2B;
+  color: #2e2b2b;
 }
 
 h1 {
@@ -93,7 +93,7 @@ h3 {
   line-height: 28px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #2E2B2B;
+  color: #2e2b2b;
 }
 
 header {
@@ -183,7 +183,7 @@ header {
   border: solid 1px #1abc9c;
   padding: 10px 15px;
   background: transparent;
-  color: #2E2B2B;
+  color: #2e2b2b;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -234,7 +234,7 @@ header {
   border: solid 1px #1abc9c;
   padding: 10px 15px;
   background: transparent;
-  color: #2E2B2B;
+  color: #2e2b2b;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -291,7 +291,7 @@ header {
 
 footer {
   height: 160px;
-  background: #2E2B2B;
+  background: #2e2b2b;
   color: #ffffff;
   text-align: center;
   padding: 30px 0;
@@ -346,7 +346,7 @@ footer a {
   width: 243px;
   height: 189px;
   margin: 0 auto;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 .hero__illustration__inner {
   position: absolute;
@@ -401,7 +401,7 @@ footer a {
 .products__card__item {
   width: 328.16px;
   margin: 70px 27px 30px 27px;
-  background: #E5E5E5;
+  background: #e5e5e5;
   pointer-events: auto;
 }
 .products__card__item__last {
@@ -503,20 +503,12 @@ footer a {
   margin-right: 5px;
 }
 
-.product-details .products__card__price {
-  color: #2E2B2B;
-  font-weight: bold;
-}
-.product-details .products__card__notation {
-  font-size: 16px;
-  padding: 15px 0;
-}
-
 .option {
   padding: 10px;
 }
-.option label {
+.option label span {
   padding: 0 5px;
+  margin-right: 5px;
   text-transform: capitalize;
 }
 
@@ -558,10 +550,10 @@ footer a {
     margin: initial;
     padding: initial;
     text-transform: capitalize;
-    background: #E5E5E5;
+    background: #e5e5e5;
   }
   .container-cart .cart__subtotal__container {
-    background: #E5E5E5;
+    background: #e5e5e5;
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 30px;
@@ -593,6 +585,11 @@ footer a {
     width: 100%;
     margin: 80px 0;
   }
+  #page__confirmation .hero__title h1 {
+    text-transform: initial;
+    line-height: 55px;
+    text-align: left;
+  }
 }
 
 .form__id,
@@ -609,7 +606,7 @@ footer a {
 .form__adresse label,
 .form__consigne label {
   display: block;
-  color: #2E2B2B;
+  color: #2e2b2b;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -624,7 +621,7 @@ footer a {
   margin-top: 5px;
   width: 200px;
   height: 19px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 9px;
 }

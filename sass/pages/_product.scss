@@ -1,9 +1,7 @@
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
 
-
-
-// change background color for the page 
+// change background color for the page
 #page__product {
     background: variables.$clr-5;
     .header__nav__search__input {
@@ -12,8 +10,6 @@
     }
 }
 
-
-
 .previous__btn {
     margin: 20px 0;
 }
@@ -21,7 +17,7 @@
 // load main picture for the product
 .product {
     @include mixins.breakpoint(tablet) {
-        // change the layout for tablet to allow the aside pictures 
+        // change the layout for tablet to allow the aside pictures
         display: flex;
     }
     padding: variables.$spacer;
@@ -70,44 +66,37 @@
     }
 }
 
-// price and stars notation set up
-.product-details {
-    .products__card__price {
-        color: variables.$clr-1;
-        font-weight: bold;
-    }
-    .products__card__notation {
-        font-size: 16px;
-        padding: 15px 0;
-    }
-}
+// price and stars notation set up, no need for OC project
+// .product-details {
+//     .products__card__price {
+//         color: variables.$clr-1;
+//         font-weight: bold;
+//     }
+//     .products__card__notation {
+//         font-size: 16px;
+//         padding: 15px 0;
+//     }
+// }
 
-// lenses option
+// lenses options to choose
 .option {
     padding: variables.$spacer;
-    label {
+    label span{
         padding: 0 5px;
+        margin-right: 5px;
         text-transform: capitalize;
     }
 }
 
-
-
-
-
-//positioning the description text
-.product-details{
+//positioning the product description text
+.product-details {
     &__add-btn,
     &__description {
         @include mixins.breakpoint(tablet) {
         }
         margin-left: variables.$spacer;
-        
     }
     &__description {
         padding: 30px 0;
     }
 }
-
-
-

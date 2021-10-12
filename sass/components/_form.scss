@@ -27,7 +27,6 @@
         border-radius: 9px;
     }
     margin-bottom: 60px;
-
 }
 
 form {
@@ -37,5 +36,4 @@ form {
         @include mixins.colored-btn(variables.$clr-4);
         margin-bottom: 60px;
     }
-
 }

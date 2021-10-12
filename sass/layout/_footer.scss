@@ -1,6 +1,5 @@
 @use "../abstracts/variables";
 
-
 footer {
     height: variables.$footer_height;
     background: variables.$clr-1;
@@ -12,4 +11,3 @@ footer {
         color: variables.$clr-5;
     }
 }
-
