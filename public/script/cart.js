@@ -28,7 +28,7 @@ const serverProducts = [];
 
 cartProducts.forEach(async (cartProduct) => {
     try {
-        // get the server product informations for the product in the cart
+        // get the server product informations for a product in the cart
         const product = await getProductData(cartProduct.id);
         serverProducts.push(product);
 

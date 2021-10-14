@@ -1,12 +1,14 @@
 // /////////////// js script on product details product.html //////////////////////
 
 import {
+
     convertPrice,
     getProductData,
     backBtn,
     toastMessage,
     isInLocalStorage,
     setInLocalStorage,
+    
 } from "./module.js";
 
 // back button to previous history page
@@ -104,7 +106,7 @@ addToCartBtn.addEventListener("click", () => {
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
 
         } else {
-            
+
             toastMessage(
                 "L'achat est limité à 10 produits identiques",
                 "red",

@@ -4,10 +4,10 @@
 // change background color for the page
 #page__product {
     background: variables.$clr-5;
-    .header__nav__search__input {
-        // change the color of the search bar
-        border: solid 1px variables.$clr-4;
-    }
+    // .header__nav__search__input {
+    //     // change the color of the search bar
+    //     border: solid 1px variables.$clr-4;
+    // }
 }
 
 .previous__btn {
@@ -22,13 +22,14 @@
     }
     padding: variables.$spacer;
     margin: 0 auto;
-    img {
+    &__image {
         @include mixins.breakpoint(tablet) {
             order: 1;
         }
+        @include mixins.cardShadow;
         // set the image size
-        width: 355px;
-        height: 244.98px;
+        width: 600px;
+        height: 400px;
         // background-image: url("/images/vcam_2.jpg");
         // background-size: cover;
     }

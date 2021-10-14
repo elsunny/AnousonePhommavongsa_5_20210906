@@ -34,7 +34,7 @@
     <body id="page__cart">
         <header>
             <div class="header__logo">
-                <a href="index.html">vintedcamera</a>
+                <a href="index.html">orinoco camera</a>
             </div>
 
             <!-- ///////////////////// main navigation section ///////////////////// -->
@@ -142,25 +142,13 @@
                             </div>
                             <div>
                                 <label for="ville">votre ville</label>
-                                <input
-                                    type="tel"
-                                    name="ville"
-                                    id="ville"
-                                />
-                            </div>
-                            <div>
-                                <label for="pays">votre pays</label>
-                                <input type="text" name="pays" id="pays" />
+                                <input type="tel" name="ville" id="ville" />
                             </div>
                         </div>
                         <button
                             type="submit"
                             name="submit"
-                            class="
-                                subtotal__btn
-                                btn__order
-                                button button--dione
-                            "
+                            class="subtotal__btn btn__order"
                         >
                             <span>Passez la commande</span>
                         </button>
@@ -185,7 +173,7 @@
         </footer>
         <template id="cartTemplate">
             <figure class="product">
-                <img src="#" alt="" />
+                <img class="product__imgCart" src="#" alt="" />
                 <figcaption class="product__caption">
                     <h2>product title</h2>
                     <h3>option choisie</h3>
@@ -208,7 +196,7 @@
                             <option value="10">10</option>
                         </select>
                     </form>
-                    <button class="product__delete button button--dione">
+                    <button class="product__delete">
                         <span>supprimer</span>
                     </button>
                 </figcaption>

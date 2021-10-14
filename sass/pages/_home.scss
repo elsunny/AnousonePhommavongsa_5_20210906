@@ -73,6 +73,16 @@
     padding-top: 20px;
     padding-bottom: 50px;
     background: variables.$clr-5;
+    &__subtitle {
+        padding-left: 30px;
+        font-size: 25px;
+        color: variables.$clr-4;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: capitalize;
+        line-height: 37px;
+        letter-spacing: 0.03em;
+    }
 }
 
 .products__card {
@@ -109,6 +119,7 @@
 
 // product card item set up
 .products__card__item {
+    @include mixins.cardShadow;
     width: 328.16px;
     // height: 348px;
     margin: 70px 27px 30px 27px;

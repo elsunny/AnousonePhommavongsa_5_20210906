@@ -13,25 +13,25 @@ header {
 .header {
     &__logo {
         order: 0;
-        padding: 10px;
+        padding: 20px;
     }
     &__nav__search {
         @include mixins.breakpoint(tablet) {
             // order: 1;
             flex: 5;
             padding-right: 20px;
-            &__input {
-                max-width: 280px;
-            }
+            // &__input {
+            //     max-width: 280px;
+            // }
         }
         order: 1;
         padding: 10px;
         flex-grow: 2;
         text-align: right;
-        &__input {
-            //function not activated on openclassrooms projet 5, search bar disactivated
-            display: none;
-        }
+        // &__input {
+        //     //function not activated on openclassrooms projet 5, search bar disactivated
+        //     display: none;
+        // }
     }
 
     &__nav {
