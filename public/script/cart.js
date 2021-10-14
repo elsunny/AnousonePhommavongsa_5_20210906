@@ -151,7 +151,10 @@ class Customer {
     }
 }
 
-// sending the order to server
+console.log("cartProducts", cartProducts);
+if (cartProducts.length > 0) {
+    console.log("cartProducts n'est pas vide");
+    // sending the order to server
 form.addEventListener("submit", async (e) => {
     try {
         e.preventDefault();
@@ -198,6 +201,13 @@ form.addEventListener("submit", async (e) => {
         toastMessage("nous avons rencontré un problème!", "red", 5000);
     }
 });
+} else {
+    console.log("cartProducts est vide");
+    document.querySelector(".cart__title").textContent = "votre panier est vide !";
+}
+
+
+
 
 async function getOrderId(orderData) {
     try {
