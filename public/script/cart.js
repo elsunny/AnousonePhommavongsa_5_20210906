@@ -1,17 +1,21 @@
 // ///////////// js script for cart page cart.html //////////////////
 
 import {
+
     getProductData,
     convertPrice,
     backBtn,
     toastMessage,
+    isInLocalStorage,
+    setInLocalStorage,
+
 } from "./module.js";
 
 // back button call
 backBtn();
 
 // get the informations from localstorage
-const cartProducts = JSON.parse(localStorage.getItem("productInCart"));
+const cartProducts = isInLocalStorage("productInCart");
 
 // get the node for html
 const cartTemplate = document.querySelector("#cartTemplate");
@@ -69,10 +73,7 @@ cartProducts.forEach(async (cartProduct) => {
                 // update the quantity in localStorage
                 const productIndex = cartProducts.findIndex(isInProducts);
                 cartProducts[productIndex].qty = parseInt(qtyUpdated);
-                localStorage.setItem(
-                    "productInCart",
-                    JSON.stringify(cartProducts)
-                );
+                setInLocalStorage("productInCart", cartProducts);
 
                 // update the amount and quantity display
                 displayTotal();
@@ -90,10 +91,7 @@ cartProducts.forEach(async (cartProduct) => {
                 // updtade the quantity in localstorage
                 const productIndex = cartProducts.findIndex(isInProducts);
                 cartProducts.splice(productIndex, 1);
-                localStorage.setItem(
-                    "productInCart",
-                    JSON.stringify(cartProducts)
-                );
+                setInLocalStorage("productInCart", cartProducts);
 
                 // update the amount and quantity display
                 displayTotal();
@@ -186,13 +184,13 @@ form.addEventListener("submit", async (e) => {
             lastName: data.contact.lastName,
             orderID: data.orderId,
         };
-        localStorage.setItem("orderId", JSON.stringify(customerOrder));
+        setInLocalStorage("orderId", customerOrder);
 
         // store in localstorage the total amount of ther order
         //get subtotal price
         const orderTotalAmount =
             document.querySelector(".subtotal__amount").textContent;
-        localStorage.setItem("orderAmount", JSON.stringify(orderTotalAmount));
+        setInLocalStorage("orderAmount", orderTotalAmount);
 
         window.location = e.target.action;
     } catch (error) {

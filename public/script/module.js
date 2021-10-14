@@ -24,18 +24,7 @@ export const backBtn = () => {
     });
 };
 
-// toast message function
-// export const toastMessage = (info) => {
-//     const msg = document.querySelector("#divMsg");
-//     msg.innerHTML = `<span>${info}</span>`;
-//     msg.setAttribute("class", "msgAddToCart");
-//     setTimeout(() =>{
-//         msg.setAttribute("class", "");
-//         msg.innerHTML = "";
-//     }, 1200)
-
-// }
-
+// toast message
 export const toastMessage = (info, clr, time) => {
     const toastDiv = document.createElement("div");
     toastDiv.innerHTML = `<span>${info}</span>`;
@@ -47,3 +36,17 @@ export const toastMessage = (info, clr, time) => {
     toastDiv.style.backgroundColor = clr;
     document.body.appendChild(toastDiv);
 };
+
+
+// get the products from localStorage
+export const isInLocalStorage = (item) => {
+    return JSON.parse(localStorage.getItem(item));
+}
+
+// send the products in localStorage
+export const setInLocalStorage = (clef, item) => {
+    localStorage.setItem(
+        clef ,
+        JSON.stringify(item)
+    )
+}

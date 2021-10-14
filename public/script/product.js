@@ -1,18 +1,21 @@
 // /////////////// js script on product details product.html //////////////////////
+
 import {
     convertPrice,
     getProductData,
     backBtn,
     toastMessage,
+    isInLocalStorage,
+    setInLocalStorage,
 } from "./module.js";
 
-// back button call
+// back button to previous history page
 backBtn();
 
-// container for the options
+// get the node container for the options
 const productOptions = document.querySelector(".options__product");
 
-// get the html template for the options display
+// get the html template for the options display to be clone
 const optionsProductTemplate = document.querySelector("#optionTemplate");
 
 // get window url window.location
@@ -68,6 +71,7 @@ class ProductBought {
 //    action add product to cart
 // //////////////////////////////////////
 
+// select the button "ajouter au panier" and add a listener
 const addToCartBtn = document.querySelector(".product-details__add-btn");
 addToCartBtn.addEventListener("click", () => {
     try {
@@ -76,29 +80,31 @@ addToCartBtn.addEventListener("click", () => {
             'input[type="radio"]:checked'
         ).value;
 
-        // array loading already bought object from localstorage
+        // loading already bought object from localstorage
         const productsArray =
-            JSON.parse(localStorage.getItem("productInCart")) || [];
+            isInLocalStorage("productInCart") || [];
 
+        //looking for product with same id and option
         let productBought = productsArray.find((p) => {
-            //looking for product with same id and option
             return p.id === productId && p.option === optionSelection;
         });
 
+        // add new product if it unknown
         if (!productBought) {
             productBought = new ProductBought(productId, optionSelection);
             productsArray.push(productBought);
-        }
-        if (productBought.qty < 10) {
-            productBought.qty += 1;
-            localStorage.setItem(
-                "productInCart",
-                JSON.stringify(productsArray)
-            );
-
-            // ============= toast message pop up product added to cart ===============
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
+        }
+
+        // the product already exist, increase the quantity and limit the maximum to 10
+        if (productBought.qty < 10) {
+
+            productBought.qty += 1;
+            setInLocalStorage("productInCart", productsArray);
+            toastMessage("Votre produit a été ajouté au panier", "", 1200);
+
         } else {
+            
             toastMessage(
                 "L'achat est limité à 10 produits identiques",
                 "red",

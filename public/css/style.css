@@ -156,20 +156,6 @@ header {
   display: none;
 }
 
-.header__nav__search__input {
-  width: 100%;
-  height: 23px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  border: 0;
-}
-.header__nav__search__input::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f002";
-  color: red;
-}
-
 .hero__btn {
   border: solid 1px #1abc9c;
   padding: 10px 15px;
