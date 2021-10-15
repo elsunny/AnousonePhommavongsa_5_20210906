@@ -21,17 +21,6 @@
     }
 }
 
-// button with background color
-@mixin colored-btn($clr) {
-    cursor: pointer;
-    border: solid 1px $clr;
-    padding: 10px 15px;
-    background: $clr;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
 // outlined colored button
 @mixin outline-btn($clr) {
     cursor: pointer;

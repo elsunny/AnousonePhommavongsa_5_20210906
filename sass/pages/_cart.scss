@@ -17,7 +17,8 @@
     }
     &__imgCart {
         @include mixins.cardShadow;
-        height: 189px;
+        height: 200px;
+        width: 300px;
     }
 }
 

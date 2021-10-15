@@ -19,15 +19,12 @@
 .product-details__add-btn {
     @include mixins.outline-btn(variables.$clr-4);
     @include mixins.outline-btn-over;
-    margin-top: 30px;
+    margin-top: 3*variables.$spacer;
 }
 
-//  & quantity of product purchased in the cart
-
+// quantity of product purchased in the cart
 .product__quantity {
-    // @include mixins.colored-btn(variables.$clr-4);
-    
-    margin: 10px 0px;
+    margin: variables.$spacer 0px;
 }
 
 // button in confirmation page to return on the homepage

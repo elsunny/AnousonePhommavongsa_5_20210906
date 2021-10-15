@@ -23,7 +23,7 @@ a {
 .product-details,
 .cart-details,
 .confirmation-details {
-  min-height: calc( 100vh - 43px - 160px );
+  min-height: calc( 100vh - 2.5rem - 10rem );
 }
 
 .confirmation-details,
@@ -39,52 +39,53 @@ html {
   font-weight: lighter;
   font-style: normal;
   color: #2e2b2b;
+  font-size: 16px;
 }
 
 h1 {
-  font-size: 33px;
+  font-size: 2rem;
   color: #1abc9c;
   font-weight: normal;
   font-style: normal;
   text-transform: capitalize;
-  line-height: 37px;
+  line-height: 2.5rem;
   letter-spacing: 0.03em;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 h2 {
-  font-size: 13px;
-  line-height: 32px;
+  font-size: 1.3rem;
+  line-height: 2rem;
   letter-spacing: 0.1em;
   text-transform: capitalize;
 }
 
 @media screen and (min-width: 768px) {
   #page__cart figcaption h2 {
-    font-size: 25px;
+    font-size: 1.5rem;
     color: #1abc9c;
     font-weight: normal;
     font-style: normal;
-    line-height: 37px;
+    line-height: 2rem;
     letter-spacing: 0.03em;
   }
 }
 #page__cart h4 {
-  font-size: 28px;
+  font-size: 2rem;
   color: #1abc9c;
   font-weight: normal;
   font-style: normal;
   text-transform: capitalize;
-  line-height: 37px;
+  line-height: 2rem;
   letter-spacing: 0.03em;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 h3 {
-  font-size: 13px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 2rem;
   letter-spacing: 0.1em;
   text-transform: capitalize;
 }
@@ -93,8 +94,8 @@ h3 {
   font-family: "times new roman", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 40px;
-  line-height: 28px;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #2e2b2b;
@@ -105,7 +106,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  height: 43px;
+  height: 2.5rem;
   margin-bottom: 60px;
 }
 
@@ -254,7 +255,7 @@ header {
 }
 
 footer {
-  height: 160px;
+  height: 10rem;
   background: #2e2b2b;
   color: #ffffff;
   text-align: center;
@@ -274,7 +275,7 @@ footer a {
   }
 }
 .hero__title p {
-  line-height: 32px;
+  line-height: 2rem;
   letter-spacing: 0.1em;
 }
 .hero__title {
@@ -282,7 +283,7 @@ footer a {
 }
 @media screen and (min-width: 768px) {
   .hero__title {
-    padding: 0 30px;
+    padding: 30px 30px;
     width: 420px;
   }
 }
@@ -507,7 +508,8 @@ footer a {
 }
 .product__imgCart {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  height: 189px;
+  height: 200px;
+  width: 300px;
 }
 
 .line-separation {
@@ -559,7 +561,7 @@ footer a {
 }
 
 #page__confirmation .hero {
-  text-align: center;
+  text-align: left;
 }
 @media screen and (min-width: 768px) {
   #page__confirmation .hero {
@@ -596,8 +598,8 @@ footer a {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 1rem;
+  line-height: 1rem;
   letter-spacing: 0.13em;
   text-transform: capitalize;
   padding-left: 10px;
@@ -605,10 +607,10 @@ footer a {
 .form__id input,
 .form__adresse input,
 .form__consigne input {
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 10px;
-  width: 300px;
-  height: 19px;
+  width: 100%;
+  height: 1.5rem;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
 }
@@ -617,10 +619,11 @@ form button {
   cursor: pointer;
   border: solid 1px #1abc9c;
   padding: 10px 15px;
-  background: #1abc9c;
-  color: white;
+  background: transparent;
+  color: #2e2b2b;
   text-transform: uppercase;
   font-weight: bold;
+  position: relative;
   margin-bottom: 60px;
 }
 
@@ -636,7 +639,7 @@ form button {
   padding: 10px;
   position: fixed;
   z-index: 200;
-  top: 45px;
+  top: 60px;
   right: 16px;
 }
 

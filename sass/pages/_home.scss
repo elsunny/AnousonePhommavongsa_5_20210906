@@ -8,12 +8,12 @@
     }
     margin-top: 30px;
     &__title p {
-        line-height: 32px;
+        line-height: 2rem;
         letter-spacing: 0.1em;
     }
     &__title {
         @include mixins.breakpoint(tablet) {
-            padding: 0 30px;
+            padding: 30px 30px;
             width: 420px;
         }
         padding: 0 10px;

@@ -6,22 +6,23 @@ html {
     font-weight: lighter;
     font-style: normal;
     color: variables.$clr-1;
+    font-size: 16px;
 }
 
 h1 {
-    font-size: 33px;
+    font-size: 2rem;
     color: variables.$clr-4;
     font-weight: normal;
     font-style: normal;
     text-transform: capitalize;
-    line-height: 37px;
+    line-height: 2.5rem;
     letter-spacing: 0.03em;
-    padding: 20px 0;
+    padding: variables.$spacer 0;
 }
 
 h2 {
-    font-size: 13px;
-    line-height: 32px;
+    font-size: 1.3rem;
+    line-height: 2rem;
     letter-spacing: 0.1em;
     text-transform: capitalize;
 }
@@ -29,32 +30,32 @@ h2 {
 #page__cart {
     figcaption h2 {
         @include mixins.breakpoint(tablet) {
-            font-size: 25px;
+            font-size: 1.5rem;
             color: variables.$clr-4;
             font-weight: normal;
             font-style: normal;
-            line-height: 37px;
+            line-height: 2rem;
             letter-spacing: 0.03em;
         }
     }
     h4 {
         //title formulaire
-        font-size: 28px;
+        font-size: 2rem;
         color: variables.$clr-4;
         font-weight: normal;
         font-style: normal;
         text-transform: capitalize;
-        line-height: 37px;
+        line-height: 2rem;
         letter-spacing: 0.03em;
-        padding: 20px 0;
+        padding: variables.$spacer 0;
     }
 }
 
 h3 {
-    font-size: 13px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 2rem;
     letter-spacing: 0.1em;
     text-transform: capitalize;
 }
@@ -63,8 +64,8 @@ h3 {
     font-family: "times new roman", sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 40px;
-    line-height: 28px;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: variables.$clr-1;
