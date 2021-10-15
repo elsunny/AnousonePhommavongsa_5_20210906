@@ -80,14 +80,26 @@
     }
 }
 
+// //flex display of the cards
+// .products__card {
+//     // change the display of the cards
+//     @include mixins.breakpoint(tablet) {
+//         display: flex;
+//         justify-content: flex-start;
+//         overflow: hidden;
+//         flex-wrap: wrap;
+//         flex-grow: 1;
+//     }
+// }
+
+//display with grid
 .products__card {
     // change the display of the cards
     @include mixins.breakpoint(tablet) {
-        display: flex;
-        justify-content: flex-start;
-        overflow: hidden;
-        flex-wrap: wrap;
-        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 330px);
+        justify-content: space-around;
+        grid-gap: 20px;
     }
 }
 
