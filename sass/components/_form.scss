@@ -8,9 +8,13 @@
 .form__id,
 .form__adresse,
 .form__consigne {
+    margin-bottom: 6*variables.$spacer;
     div {
+        margin: 0 auto;
         margin-bottom: 2*variables.$spacer;
         text-align: left;
+        width: 330px;
+        
     }
     label {
         display: block;
@@ -32,7 +36,7 @@
         border: 1px solid variables.$clr-2;
         box-sizing: border-box;
     }
-    margin-bottom: 6*variables.$spacer;
+    
 }
 
 
@@ -40,6 +44,9 @@
 form {
     button {
         @include mixins.outline-btn(variables.$clr-4);
+        @include mixins.breakpoint(tablet) {
+            margin-bottom: 5*variables.$spacer;
+        }
         margin-bottom: 6*variables.$spacer;
     }
 }

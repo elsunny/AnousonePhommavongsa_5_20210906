@@ -14,20 +14,15 @@
     &__title {
         @include mixins.breakpoint(tablet) {
             padding: 30px 30px;
-            width: 420px;
+            max-width: 420px;
         }
         padding: 0 10px;
     }
-    &__btn {
-        // hide or see product button
-        @include mixins.breakpoint(tablet) {
-            display: initial;
-            margin-top: 30px;
-        }
-        display: none;
-    }
     // frames with different size and color
     &__illustration {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         // external frame
         position: relative;
         background-color: variables.$clr-5;
@@ -75,12 +70,12 @@
     background: variables.$clr-5;
     &__subtitle {
         padding-left: 30px;
-        font-size: 25px;
+        font-size: 1.5rem;
         color: variables.$clr-4;
         font-weight: normal;
         font-style: normal;
         text-transform: capitalize;
-        line-height: 37px;
+        line-height: 2rem;
         letter-spacing: 0.03em;
     }
 }
@@ -107,23 +102,12 @@
     }
 }
 
-// hide show more product button and position it
-.products__button--more {
-    // @include mixins.breakpoint(tablet) {
-    //     display: inherit;
-    //     text-align: center;
-    //     padding-top: 50px;
-    // }
-    display: none;
-}
 
 // product card item set up
 .products__card__item {
     @include mixins.cardShadow;
-    width: 328.16px;
-    // height: 348px;
-    margin: 70px 27px 30px 27px;
-    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 328px;
+    margin: 70px auto 30px auto;
     background: variables.$clr-2;
     pointer-events: auto;
     &__last {
@@ -131,8 +115,8 @@
     }
     &__image img {
         // set the image size
-        width: 328.16px;
-        height: 244.98px;
+        width: 328px;
+        height: 245px;
         object-fit: cover;
     }
     & figcaption {
@@ -141,15 +125,12 @@
     }
 }
 
-.products__card__notation {
-    font-size: 10px;
-    padding-bottom: 5px;
-}
+
 
 .products__card__price {
     padding-top: 16px;
     padding-bottom: 10px;
-    font-size: 25px;
+    font-size: 1.2rem;
     color: variables.$clr-4;
 }
 

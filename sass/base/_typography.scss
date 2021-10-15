@@ -10,7 +10,7 @@ html {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: variables.$clr-4;
     font-weight: normal;
     font-style: normal;
@@ -61,10 +61,13 @@ h3 {
 }
 
 .header__logo {
+    @include mixins.breakpoint(tablet) {
+        font-size: 2.5rem;
+    }
     font-family: "times new roman", sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     line-height: 2.5rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;

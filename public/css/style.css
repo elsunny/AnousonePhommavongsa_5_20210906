@@ -43,7 +43,7 @@ html {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #1abc9c;
   font-weight: normal;
   font-style: normal;
@@ -94,11 +94,16 @@ h3 {
   font-family: "times new roman", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #2e2b2b;
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    font-size: 2.5rem;
+  }
 }
 
 header {
@@ -245,6 +250,11 @@ header {
   color: black;
 }
 
+.returnBtn {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
 .header__nav__button--cart__text {
   cursor: pointer;
   text-transform: uppercase;
@@ -284,19 +294,13 @@ footer a {
 @media screen and (min-width: 768px) {
   .hero__title {
     padding: 30px 30px;
-    width: 420px;
-  }
-}
-.hero__btn {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .hero__btn {
-    display: initial;
-    margin-top: 30px;
+    max-width: 420px;
   }
 }
 .hero__illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background-color: #ffffff;
   width: 301px;
@@ -338,12 +342,12 @@ footer a {
 }
 .products__subtitle {
   padding-left: 30px;
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #1abc9c;
   font-weight: normal;
   font-style: normal;
   text-transform: capitalize;
-  line-height: 37px;
+  line-height: 2rem;
   letter-spacing: 0.03em;
 }
 
@@ -369,14 +373,10 @@ footer a {
   }
 }
 
-.products__button--more {
-  display: none;
-}
-
 .products__card__item {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  width: 328.16px;
-  margin: 70px 27px 30px 27px;
+  width: 328px;
+  margin: 70px auto 30px auto;
   background: #e5e5e5;
   pointer-events: auto;
 }
@@ -384,8 +384,8 @@ footer a {
   margin-right: auto;
 }
 .products__card__item__image img {
-  width: 328.16px;
-  height: 244.98px;
+  width: 328px;
+  height: 245px;
   object-fit: cover;
 }
 .products__card__item figcaption {
@@ -393,15 +393,10 @@ footer a {
   padding: 0px 10px;
 }
 
-.products__card__notation {
-  font-size: 10px;
-  padding-bottom: 5px;
-}
-
 .products__card__price {
   padding-top: 16px;
   padding-bottom: 10px;
-  font-size: 25px;
+  font-size: 1.2rem;
   color: #1abc9c;
 }
 
@@ -430,22 +425,28 @@ footer a {
 @media screen and (min-width: 768px) {
   .product {
     display: flex;
+    flex-direction: column;
   }
 }
 .product__image {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  width: 600px;
-  height: 400px;
+  display: flex;
+  justify-content: center;
+  width: 330px;
 }
 @media screen and (min-width: 768px) {
   .product__image {
     order: 1;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 768px) {
   .product__caption {
     order: 2;
     padding-left: 10px;
+    margin-top: 10px;
   }
   .product__caption h1 {
     padding-top: 0;
@@ -500,6 +501,13 @@ footer a {
   text-align: center;
 }
 
+.subtotal {
+  color: #1abc9c;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 @media screen and (min-width: 768px) {
   .product {
     margin-top: 10px;
@@ -508,8 +516,21 @@ footer a {
 }
 .product__imgCart {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  height: 200px;
-  width: 300px;
+  width: 100%;
+  margin-top: 50px;
+}
+@media screen and (min-width: 768px) {
+  .product__imgCart {
+    height: 200px;
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .productCart {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 }
 
 .line-separation {
@@ -525,7 +546,6 @@ footer a {
     grid-gap: 10px;
   }
   .container-cart .cart__subtotal {
-    text-align: left;
     color: #1abc9c;
     font-size: 23px;
     order: 1;
@@ -538,7 +558,6 @@ footer a {
     background: #e5e5e5;
     font-weight: bold;
     padding-top: 10px;
-    padding-bottom: 30px;
   }
   .container-cart .cart {
     background: #ffffff;
@@ -547,12 +566,16 @@ footer a {
   }
   .container-cart .cart__title {
     padding-top: 5px;
+    padding-left: 10px;
   }
   .container-cart form {
     order: 2;
   }
 }
 .container-cart .cart {
+  padding-left: 10px;
+}
+.container-cart .cart__title {
   padding-left: 10px;
 }
 
@@ -578,6 +601,9 @@ footer a {
     text-align: left;
   }
 }
+#page__confirmation .hero__title {
+  max-width: initial;
+}
 
 .form__id,
 .form__adresse,
@@ -587,8 +613,10 @@ footer a {
 .form__id div,
 .form__adresse div,
 .form__consigne div {
+  margin: 0 auto;
   margin-bottom: 20px;
   text-align: left;
+  width: 330px;
 }
 .form__id label,
 .form__adresse label,
@@ -625,6 +653,11 @@ form button {
   font-weight: bold;
   position: relative;
   margin-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  form button {
+    margin-bottom: 50px;
+  }
 }
 
 .toastMessage {

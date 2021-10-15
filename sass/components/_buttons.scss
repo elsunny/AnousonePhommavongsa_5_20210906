@@ -42,6 +42,11 @@
     @include mixins.outline-btn-over;
 }
 
+.returnBtn {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
 // panier button
 .header__nav__button--cart__text {
     cursor: pointer;
