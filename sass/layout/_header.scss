@@ -7,10 +7,12 @@ header {
     align-items: center;
     flex-wrap: wrap;
     height: variables.$header_height;
+    margin-bottom: 60px;
 }
 
 // flex order position for the header element
 .header {
+    
     &__logo {
         order: 0;
         padding: 20px;

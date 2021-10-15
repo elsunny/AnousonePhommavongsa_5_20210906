@@ -84,6 +84,13 @@
                                 <span class="subtotal__amount">0 €</span>
                             </div>
                         </div>
+                        <button
+                            type="submit"
+                            name="submit"
+                            class="subtotal__btn btn__order"
+                        >
+                            <span>Passez la commande</span>
+                        </button>
                         <div class="form__id">
                             <div>
                                 <label for="nom">votre nom</label>
@@ -138,20 +145,20 @@
                                     type="text"
                                     name="adresse"
                                     id="adresse"
+                                    required
                                 />
                             </div>
                             <div>
                                 <label for="ville">votre ville</label>
-                                <input type="tel" name="ville" id="ville" />
+                                <input
+                                    type="tel"
+                                    name="ville"
+                                    id="ville"
+                                    pattern="[A-Za-z]{3,50}"
+                                    required
+                                />
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            name="submit"
-                            class="subtotal__btn btn__order"
-                        >
-                            <span>Passez la commande</span>
-                        </button>
                     </form>
                 </aside>
                 <!-- cart details -->
