@@ -1,7 +1,6 @@
 // /////////////// js script on product details product.html //////////////////////
 
 import {
-
     convertPrice,
     getProductData,
     backBtn,
@@ -9,7 +8,6 @@ import {
     isInLocalStorage,
     setInLocalStorage,
     qtyToastMessage,
-    
 } from "./module.js";
 
 // back button to previous history page
@@ -61,6 +59,10 @@ const runProductDisplay = async () => {
 };
 runProductDisplay();
 
+//show items number close to the cart icon
+let qtyStored = isInLocalStorage("quantite");
+qtyToastMessage(qtyStored);
+
 //create product class object
 class ProductBought {
     constructor(id, option, qty = 0) {
@@ -84,8 +86,7 @@ addToCartBtn.addEventListener("click", () => {
         ).value;
 
         // loading already bought object from localstorage
-        const productsArray =
-            isInLocalStorage("productInCart") || [];
+        const productsArray = isInLocalStorage("productInCart") || [];
 
         //looking for product with same id and option
         let productBought = productsArray.find((p) => {
@@ -97,17 +98,26 @@ addToCartBtn.addEventListener("click", () => {
             productBought = new ProductBought(productId, optionSelection);
             productsArray.push(productBought);
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
+
+            // update the quantity indicator near the cart icon
+            let newQtyStored = qtyStored + 1;
+            document.querySelector(".qtyToastMessage span").innerText =
+                newQtyStored;
+            setInLocalStorage("quantite", newQtyStored);
         }
 
         // the product already exist, increase the quantity and limit the maximum to 10
         if (productBought.qty < 10) {
-
             productBought.qty += 1;
             setInLocalStorage("productInCart", productsArray);
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
 
+            // update the quantity indicator near the cart icon
+            qtyStored += 1;
+            document.querySelector(".qtyToastMessage span").innerText =
+                qtyStored;
+                setInLocalStorage("quantite", qtyStored);
         } else {
-
             toastMessage(
                 "L'achat est limité à 10 produits identiques",
                 "red",
@@ -119,7 +129,3 @@ addToCartBtn.addEventListener("click", () => {
         toastMessage("nous avons rencontré un problème!", "red", 5000);
     }
 });
-
-//show item number in the cart toast menu
-const qtyStored = isInLocalStorage("quantite")
-qtyToastMessage(qtyStored);

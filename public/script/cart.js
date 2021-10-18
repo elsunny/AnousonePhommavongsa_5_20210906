@@ -95,6 +95,11 @@ cartProducts.forEach(async (cartProduct) => {
                 // update the amount and quantity display
                 displayTotal();
                 cartPublish.remove();
+
+                // initialize quantity in localStorage if there is no more products
+                if (!cartProducts.length > 0) {
+                    setInLocalStorage("quantite", 0);
+                }
             });
 
         // insert the code in the html
@@ -117,7 +122,7 @@ const displayTotal = () => {
             });
             acc.cartNum += cartProduct.qty;
 
-            //ajoute la quantité au localStorage
+            //add the quantity to localStorage that will be needed for the items number close to cart icon
             setInLocalStorage("quantite", acc.cartNum);
 
             if (myProduct) {
@@ -133,7 +138,7 @@ const displayTotal = () => {
         ".subtotal__items"
     ).innerText = `(${cartNum} articles)`;
 
-    // update the quantity in the toast message information
+    // update the quantity indicator close to the cart icon
     document.querySelector(".qtyToastMessage span").innerText = cartNum;
 
     //calcul subtotal price
@@ -141,8 +146,6 @@ const displayTotal = () => {
         cartTotal,
         100
     );
-
-    
 };
 
 // ================= send to server form and cart order ===================
@@ -237,7 +240,6 @@ async function getOrderId(orderData) {
     }
 }
 
-
-//show item number in the cart toast menu
+//show items number indication close to the cart icon
 const qtyStored = isInLocalStorage("quantite");
 qtyToastMessage(qtyStored);
