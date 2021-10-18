@@ -45,7 +45,7 @@ form {
     button {
         @include mixins.outline-btn(variables.$clr-4);
         @include mixins.breakpoint(tablet) {
-            margin-bottom: 5*variables.$spacer;
+            margin-bottom: 4*variables.$spacer;
         }
         margin-bottom: 6*variables.$spacer;
     }

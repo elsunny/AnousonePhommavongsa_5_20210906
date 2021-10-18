@@ -8,6 +8,7 @@ import {
     toastMessage,
     isInLocalStorage,
     setInLocalStorage,
+    qtyToastMessage,
     
 } from "./module.js";
 
@@ -118,3 +119,7 @@ addToCartBtn.addEventListener("click", () => {
         toastMessage("nous avons rencontré un problème!", "red", 5000);
     }
 });
+
+//show item number in the cart toast menu
+const qtyStored = isInLocalStorage("quantite")
+qtyToastMessage(qtyStored);

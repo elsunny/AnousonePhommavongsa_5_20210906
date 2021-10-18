@@ -1,5 +1,5 @@
 // ///////////// js script for confirmation page confirmation.html //////////////////
-import { backBtn, toastMessage, isInLocalStorage, } from "./module.js";
+import { backBtn, toastMessage, isInLocalStorage, qtyToastMessage } from "./module.js";
 
 // back button call
 backBtn();
@@ -17,3 +17,7 @@ try {
     console.log("Nous avons rencontré une erreur " + error);
     toastMessage("nous avons rencontré un problème!", "red", 5000);
 }
+
+//show item number in the cart toast menu
+const qtyStored = isInLocalStorage("quantite")
+qtyToastMessage(qtyStored);

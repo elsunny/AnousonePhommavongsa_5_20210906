@@ -80,19 +80,8 @@
     }
 }
 
-// //flex display of the cards
-// .products__card {
-//     // change the display of the cards
-//     @include mixins.breakpoint(tablet) {
-//         display: flex;
-//         justify-content: flex-start;
-//         overflow: hidden;
-//         flex-wrap: wrap;
-//         flex-grow: 1;
-//     }
-// }
 
-//display with grid
+//display product cards with grid
 .products__card {
     // change the display of the cards
     @include mixins.breakpoint(tablet) {

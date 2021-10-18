@@ -1,5 +1,5 @@
 // /////////////// js script on homepage index.html //////////////////////
-import { convertPrice, toastMessage } from "./module.js";
+import { convertPrice, toastMessage, qtyToastMessage, isInLocalStorage } from "./module.js";
 
 // container for the products cards
 const productCards = document.querySelector(".products__card");
@@ -42,3 +42,8 @@ async function getAndDisplayProduct() {
 }
 
 getAndDisplayProduct();
+
+
+//show item number in the cart toast menu
+const qtyStored = isInLocalStorage("quantite")
+qtyToastMessage(qtyStored);

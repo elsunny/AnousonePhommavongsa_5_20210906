@@ -7,6 +7,7 @@ import {
     toastMessage,
     isInLocalStorage,
     setInLocalStorage,
+    qtyToastMessage,
 } from "./module.js";
 
 // back button call
@@ -115,6 +116,10 @@ const displayTotal = () => {
                 return p._id === cartProduct.id;
             });
             acc.cartNum += cartProduct.qty;
+
+            //ajoute la quantité au localStorage
+            setInLocalStorage("quantite", acc.cartNum);
+
             if (myProduct) {
                 acc.cartTotal += myProduct.price * cartProduct.qty;
             }
@@ -128,11 +133,16 @@ const displayTotal = () => {
         ".subtotal__items"
     ).innerText = `(${cartNum} articles)`;
 
+    // update the quantity in the toast message information
+    document.querySelector(".qtyToastMessage span").innerText = cartNum;
+
     //calcul subtotal price
     document.querySelector(".subtotal__amount").innerText = convertPrice(
         cartTotal,
         100
     );
+
+    
 };
 
 // ================= send to server form and cart order ===================
@@ -226,3 +236,8 @@ async function getOrderId(orderData) {
         toastMessage("nous avons rencontré un problème!", "red", 5000);
     }
 }
+
+
+//show item number in the cart toast menu
+const qtyStored = isInLocalStorage("quantite");
+qtyToastMessage(qtyStored);

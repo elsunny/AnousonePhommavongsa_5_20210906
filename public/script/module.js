@@ -37,6 +37,16 @@ export const toastMessage = (info, clr, time) => {
     document.body.appendChild(toastDiv);
 };
 
+// quantity information toast
+export const qtyToastMessage = (nb) => {
+    const toastDiv = document.createElement("i");
+    toastDiv.innerHTML = `<span>${nb}</span>`;
+    toastDiv.setAttribute("class", "qtyToastMessage");
+    const showQtyToast = document.querySelector(".header__nav__button--cart__icon");
+    // toastDiv.style.backgroundColor = clr;
+    showQtyToast.appendChild(toastDiv);
+};
+
 
 // get the products from localStorage
 export const isInLocalStorage = (item) => {
