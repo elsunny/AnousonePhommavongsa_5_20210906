@@ -99,7 +99,7 @@ addToCartBtn.addEventListener("click", () => {
             productsArray.push(productBought);
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
 
-            // update the quantity indicator near the cart icon
+            // in case of new product update the quantity indicator near the cart icon and updtate the quantity in localstorage
             let newQtyStored = qtyStored + 1;
             document.querySelector(".qtyToastMessage span").innerText =
                 newQtyStored;
@@ -112,11 +112,11 @@ addToCartBtn.addEventListener("click", () => {
             setInLocalStorage("productInCart", productsArray);
             toastMessage("Votre produit a été ajouté au panier", "", 1200);
 
-            // update the quantity indicator near the cart icon
+            // update the quantity indicator near the cart icon and updtate the quantity in localstorage
             qtyStored += 1;
             document.querySelector(".qtyToastMessage span").innerText =
                 qtyStored;
-                setInLocalStorage("quantite", qtyStored);
+            setInLocalStorage("quantite", qtyStored);
         } else {
             toastMessage(
                 "L'achat est limité à 10 produits identiques",

@@ -30,41 +30,35 @@ export const toastMessage = (info, clr, time) => {
     toastDiv.innerHTML = `<span>${info}</span>`;
     toastDiv.setAttribute("class", "toastMessage");
     setTimeout(() => {
-        toastDiv.setAttribute("class", "");
-        toastDiv.innerHTML = "";
+        toastDiv.parentNode.removeChild(toastDiv);
     }, time);
     toastDiv.style.backgroundColor = clr;
     document.body.appendChild(toastDiv);
 };
 
-// quantity information toast
+// give the items quantity waiting close to cart icon
 export const qtyToastMessage = (nb) => {
-    if ( nb === null ) {
+    if (nb === null) {
         setInLocalStorage("quantite", 0);
         qtyToastMessage(0);
     } else {
-
         const toastDiv = document.createElement("i");
         toastDiv.innerHTML = `<span>${nb}</span>`;
         toastDiv.setAttribute("class", "qtyToastMessage");
-        const showQtyToast = document.querySelector(".header__nav__button--cart__icon");
+        const showQtyToast = document.querySelector(
+            ".header__nav__button--cart__icon"
+        );
         // toastDiv.style.backgroundColor = clr;
         showQtyToast.appendChild(toastDiv);
     }
-
-    
 };
-
 
 // get the products from localStorage
 export const isInLocalStorage = (item) => {
     return JSON.parse(localStorage.getItem(item));
-}
+};
 
 // send the products in localStorage
 export const setInLocalStorage = (clef, item) => {
-    localStorage.setItem(
-        clef ,
-        JSON.stringify(item)
-    )
-}
+    localStorage.setItem(clef, JSON.stringify(item));
+};

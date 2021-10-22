@@ -28,7 +28,7 @@
         @include mixins.breakpoint(tablet) {
             order: 1;
             // set the image size
-            width: 100%;
+            width: 600px;
             height: auto;
             margin-bottom: 20px;
         }
