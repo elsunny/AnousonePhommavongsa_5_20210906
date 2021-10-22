@@ -1,10 +1,10 @@
 // /////////////// js script on homepage index.html //////////////////////
 import { convertPrice, toastMessage, qtyToastMessage, isInLocalStorage } from "./module.js";
 
-// container for the products cards
+// get the container in the DOM for the products cards
 const productCards = document.querySelector(".products__card");
 
-// get in variable the html content for the product card layout
+// put in a variable the html content for the product card layout that will be displayed
 const productTemplate = document.querySelector("#productTemplate");
 
 // function to get the product informations on the server and display it for all products
@@ -20,7 +20,6 @@ async function getAndDisplayProduct() {
                 .querySelector(".products__card__item")
                 .cloneNode(true);
 
-            // const productCard = document.importNode(productTemplate.content, true)
             productCard.querySelector(".products__card__item__image img").src =
                 product.imageUrl;
             productCard
@@ -32,7 +31,7 @@ async function getAndDisplayProduct() {
             productCard.querySelector(".products__card__price").innerText =
                 convertPrice(product.price, 100);
 
-            // insert the code in the container
+            // insert the code in the container DOM
             productCards.appendChild(productCard);
         });
     } catch (error) {

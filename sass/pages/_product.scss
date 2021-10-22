@@ -4,10 +4,6 @@
 // change background color for the page
 #page__product {
     background: variables.$clr-5;
-    // .header__nav__search__input {
-    //     // change the color of the search bar
-    //     border: solid 1px variables.$clr-4;
-    // }
 }
 
 .previous__btn {
@@ -16,12 +12,6 @@
 
 // load main picture for the product
 .product {
-    @include mixins.breakpoint(tablet) {
-        // change the layout for tablet to allow the aside pictures
-        display: flex;
-        flex-direction: column;
-    }
-   
     padding: variables.$spacer;
     margin: 0 auto;
     &__image {
@@ -50,40 +40,6 @@
     }
 }
 
-// load pictures for the gallery thumbnail and set up
-.gallery {
-    @include mixins.breakpoint(tablet) {
-        display: initial;
-        order: 0;
-        flex-basis: 0;
-    }
-    @include mixins.breakpoint(laptop) {
-        flex-grow: initial;
-    }
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
-    img {
-        // set the image size
-        width: 90px;
-        height: 63px;
-        background-image: url("/images/vcam_2.jpg");
-        background-size: cover;
-        margin-right: 5px;
-    }
-}
-
-// price and stars notation set up, no need for OC project
-// .product-details {
-//     .products__card__price {
-//         color: variables.$clr-1;
-//         font-weight: bold;
-//     }
-//     .products__card__notation {
-//         font-size: 16px;
-//         padding: 15px 0;
-//     }
-// }
 
 // lenses options to choose
 .option {

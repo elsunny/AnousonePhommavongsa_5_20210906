@@ -13,7 +13,7 @@ import {
 // back button to previous history page
 backBtn();
 
-// get the node container for the options
+// get the node container DOM for the options
 const productOptions = document.querySelector(".options__product");
 
 // get the html template for the options display to be clone
@@ -46,6 +46,7 @@ const runProductDisplay = async () => {
         const oups = (optionDisplay.querySelector(
             ".labelOption span"
         ).innerText = opt);
+        //add attribute to the element
         optionDisplay
             .querySelector(".labelOption input")
             .setAttribute("id", opt);
@@ -59,11 +60,11 @@ const runProductDisplay = async () => {
 };
 runProductDisplay();
 
-//show items number close to the cart icon
+//show items number already in cart close to the cart icon
 let qtyStored = isInLocalStorage("quantite");
 qtyToastMessage(qtyStored);
 
-//create product class object
+//create a product class object
 class ProductBought {
     constructor(id, option, qty = 0) {
         this.id = id;
@@ -93,7 +94,7 @@ addToCartBtn.addEventListener("click", () => {
             return p.id === productId && p.option === optionSelection;
         });
 
-        // add new product if it unknown
+        // add new product if it is unknown and new
         if (!productBought) {
             productBought = new ProductBought(productId, optionSelection);
             productsArray.push(productBought);

@@ -1,4 +1,4 @@
-// get the informations relative to the id on the server
+// function who gives informations found on the server regarding an id parameter
 export async function getProductData(idProduct) {
     try {
         // get the informations and transform the json data to javascript data
@@ -12,19 +12,19 @@ export async function getProductData(idProduct) {
     }
 }
 
-// price conversion
+// function who convert the price and add € sign
 export const convertPrice = (price, coef) => {
     return price / coef + " \u20AC";
 };
 
-// back button to history
+// function who manage the back button to history
 export const backBtn = () => {
     document.querySelector(".previous__btn").addEventListener("click", () => {
         window.history.back();
     });
 };
 
-// toast message
+// function who creates a toast message then remove it
 export const toastMessage = (info, clr, time) => {
     const toastDiv = document.createElement("div");
     toastDiv.innerHTML = `<span>${info}</span>`;
@@ -36,7 +36,7 @@ export const toastMessage = (info, clr, time) => {
     document.body.appendChild(toastDiv);
 };
 
-// give the items quantity waiting close to cart icon
+// function who gives the items quantity already in cart, it is shown close to cart icon
 export const qtyToastMessage = (nb) => {
     if (nb === null) {
         setInLocalStorage("quantite", 0);
@@ -48,17 +48,16 @@ export const qtyToastMessage = (nb) => {
         const showQtyToast = document.querySelector(
             ".header__nav__button--cart__icon"
         );
-        // toastDiv.style.backgroundColor = clr;
         showQtyToast.appendChild(toastDiv);
     }
 };
 
-// get the products from localStorage
+// function who gives the products stored in localStorage
 export const isInLocalStorage = (item) => {
     return JSON.parse(localStorage.getItem(item));
 };
 
-// send the products in localStorage
+// function who stores the products in localStorage
 export const setInLocalStorage = (clef, item) => {
     localStorage.setItem(clef, JSON.stringify(item));
 };

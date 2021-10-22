@@ -360,18 +360,6 @@ footer a {
   }
 }
 
-.products__nav {
-  display: flex;
-}
-.products__nav__breadcrumb {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .products__nav__breadcrumb {
-    display: inherit;
-  }
-}
-
 .products__card__item {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   width: 328px;
@@ -399,16 +387,6 @@ footer a {
   color: #1abc9c;
 }
 
-.break-flex {
-  width: 100%;
-  border: 0;
-}
-@media screen and (min-width: 1280px) {
-  .break-flex {
-    display: none;
-  }
-}
-
 #page__product {
   background: #ffffff;
 }
@@ -420,12 +398,6 @@ footer a {
 .product {
   padding: 10px;
   margin: 0 auto;
-}
-@media screen and (min-width: 768px) {
-  .product {
-    display: flex;
-    flex-direction: column;
-  }
 }
 .product__image {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -450,31 +422,6 @@ footer a {
   .product__caption h1 {
     padding-top: 0;
   }
-}
-
-.gallery {
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-}
-@media screen and (min-width: 768px) {
-  .gallery {
-    display: initial;
-    order: 0;
-    flex-basis: 0;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .gallery {
-    flex-grow: initial;
-  }
-}
-.gallery img {
-  width: 90px;
-  height: 63px;
-  background-image: url("/images/vcam_2.jpg");
-  background-size: cover;
-  margin-right: 5px;
 }
 
 .option {
@@ -527,15 +474,10 @@ footer a {
 
 @media screen and (min-width: 1280px) {
   .productCart {
+    display: flex;
     flex-direction: row;
     align-items: flex-end;
   }
-}
-
-.line-separation {
-  background: linear-gradient(90deg, rgba(229, 229, 229, 0.5) 0%, #e5e5e5 50%, rgba(229, 229, 229, 0.5) 100%);
-  height: 1px;
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
